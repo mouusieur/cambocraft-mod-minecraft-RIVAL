@@ -58,3 +58,8 @@ La suite de tests a été étendue à six tests après la simulation : le balaya
 - `tools/test_java.sh --simulate` avec Eclipse Compiler et JRE 21 : les trois suites Java réussissent et les deux simulations de 5 millions de tirages passent.
 - Codec : aller-retour d'état complet et vide, ordre déterministe, détection de corruption, fichier tronqué, taille excessive, version inconnue, format incorrect, compteur invalide, nombre excessif d'entrées, doublons et données surnuméraires.
 - La sérialisation testée est en mémoire seulement ; pas de test de redémarrage d'un serveur, ni de branchement Minecraft, ni d'écriture atomique ou de migration de données existantes.
+
+## Suite P0 — horloge saisonnière
+
+- `tools/test_java.sh --simulate` : quatre suites Java réussies, dont `SeasonClockTest` ; compilation Eclipse en mode Java 21. Les tests couvrent durée par défaut et configurable, jours et transitions, continuité de la crue, niveaux et bornes, entrées invalides et très grands temps.
+- Le modèle est purement numérique : pas de test Minecraft, modification de blocs, météo, temps persistant ou cycle du riz. Les critères de saisons et de Grand Lac restent non atteints.

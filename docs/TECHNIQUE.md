@@ -25,3 +25,7 @@ Ces types constituent un contrat de domaine **sans persistance, catalogue JSON, 
 `NenStateCodec.encode/decode` utilise un format binaire versionné (magic `CBNN`, version 1, pity, collection, emplacements, offre, CRC32). Les identifiants sont triés à l'encodage et les noms des raretés sont stockés explicitement. `decode` contrôle les longueurs et invariants et refuse tout fichier d'une version inconnue ; il ne tente aucune migration automatique. La somme de contrôle n'est pas une protection contre un attaquant.
 
 L'état de domaine n'a pas de limite logique de collection, mais le codec actuel refuse plus de 100 000 entrées ou 32 Mio : limite de sécurité **incompatible avec la promesse d'inventaire illimité à grande échelle**, à résoudre avant livraison. Ce codec n'écrit aucun fichier et n'est pas un attachment Fabric : sauvegarde transactionnelle, cycle de vie joueur, migration et traitement des crashs restent à implémenter et tester.
+
+## Modèle de saisons
+
+`SeasonClock.sample` calcule à partir d'un âge de monde monotone une saison, un jour, un tick et une fraction de niveau du lac. La durée est configurable au constructeur (huit jours par défaut). `lakeHeight(min,max)` arrondit cette fraction entre deux niveaux donnés ; il ne touche pas au monde. Le futur serveur devra fournir un compteur persistant (pas `timeOfDay`), synchroniser l'affichage et planifier toute modification de terrain avec un budget et une protection des constructions. Aucun de ces raccordements n'existe encore.

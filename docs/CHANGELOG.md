@@ -28,3 +28,7 @@
 ## 2026-11-11 — Encodage du carnet
 - Codec autonome versionné avec CRC32, bornes défensives et tests de sauvegardes invalides.
 - Ce codec n'est pas branché aux sauvegardes Minecraft ; pas de migration réelle ni de persistance durable, et une limite technique à résoudre avant livraison.
+
+## 2026-11-11 — Modèle du cycle saisonnier P0
+- Horloge Java pure : trois saisons configurables et niveau cible du lac continu, avec tests de transitions et de bornes.
+- Aucune modification du monde, météo, rizière ou persistance Fabric : le cycle n'est pas visible en jeu.
