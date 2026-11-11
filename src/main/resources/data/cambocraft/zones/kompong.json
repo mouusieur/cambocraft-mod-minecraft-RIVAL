@@ -1,0 +1,16 @@
+{
+  "id": "cambocraft:kompong",
+  "order": 5,
+  "name": {
+    "fr": "Forêt de Kompong",
+    "en": "Kompong Forest"
+  },
+  "minimum_level": 70,
+  "boss": "cambocraft:forest_serpent",
+  "boss_name": {
+    "fr": "Serpent de la forêt",
+    "en": "Forest Serpent"
+  },
+  "previous_boss": "cambocraft:deep_crocodile",
+  "requires_rebirth": false
+}

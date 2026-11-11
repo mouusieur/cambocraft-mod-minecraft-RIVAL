@@ -1,0 +1,16 @@
+{
+  "id": "cambocraft:ly",
+  "order": 2,
+  "name": {
+    "fr": "Rizières de Ly",
+    "en": "Ly Rice Fields"
+  },
+  "minimum_level": 15,
+  "boss": "cambocraft:golden_buffalo",
+  "boss_name": {
+    "fr": "Buffle d’Or",
+    "en": "Golden Buffalo"
+  },
+  "previous_boss": "cambocraft:river_chief",
+  "requires_rebirth": false
+}

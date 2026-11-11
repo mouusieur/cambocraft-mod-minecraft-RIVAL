@@ -1,0 +1,16 @@
+{
+  "id": "cambocraft:karst",
+  "order": 8,
+  "name": {
+    "fr": "Montagnes karstiques",
+    "en": "Karst Mountains"
+  },
+  "minimum_level": 130,
+  "boss": "cambocraft:laterite_phoenix",
+  "boss_name": {
+    "fr": "Phénix de latérite",
+    "en": "Laterite Phoenix"
+  },
+  "previous_boss": "cambocraft:shadow_general",
+  "requires_rebirth": false
+}

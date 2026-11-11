@@ -1,0 +1,16 @@
+{
+  "id": "cambocraft:prasat_sovann",
+  "order": 6,
+  "name": {
+    "fr": "Temples de Prasat Sovann",
+    "en": "Prasat Sovann Temples"
+  },
+  "minimum_level": 90,
+  "boss": "cambocraft:stone_guardian",
+  "boss_name": {
+    "fr": "Gardien de pierre",
+    "en": "Stone Guardian"
+  },
+  "previous_boss": "cambocraft:forest_serpent",
+  "requires_rebirth": false
+}

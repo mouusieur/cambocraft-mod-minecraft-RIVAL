@@ -1,0 +1,16 @@
+{
+  "id": "cambocraft:sanctuaire_lotus",
+  "order": 11,
+  "name": {
+    "fr": "Sanctuaire du Lotus",
+    "en": "Lotus Sanctuary"
+  },
+  "minimum_level": 185,
+  "boss": "cambocraft:balance_guardian",
+  "boss_name": {
+    "fr": "Gardien de l’Équilibre",
+    "en": "Guardian of Balance"
+  },
+  "previous_boss": "cambocraft:storm_garuda",
+  "requires_rebirth": false
+}

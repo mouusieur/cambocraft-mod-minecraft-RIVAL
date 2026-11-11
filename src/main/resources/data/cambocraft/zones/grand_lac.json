@@ -1,0 +1,16 @@
+{
+  "id": "cambocraft:grand_lac",
+  "order": 4,
+  "name": {
+    "fr": "Grand Lac",
+    "en": "Great Lake"
+  },
+  "minimum_level": 50,
+  "boss": "cambocraft:deep_crocodile",
+  "boss_name": {
+    "fr": "Crocodile des Profondeurs",
+    "en": "Deepwater Crocodile"
+  },
+  "previous_boss": "cambocraft:blade_master",
+  "requires_rebirth": false
+}

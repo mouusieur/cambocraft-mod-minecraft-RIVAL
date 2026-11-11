@@ -1,0 +1,16 @@
+{
+  "id": "cambocraft:labyrinthe_visages",
+  "order": 9,
+  "name": {
+    "fr": "Labyrinthe des Visages",
+    "en": "Labyrinth of Faces"
+  },
+  "minimum_level": 150,
+  "boss": "cambocraft:awakened_face",
+  "boss_name": {
+    "fr": "Éveil du Visage",
+    "en": "Awakened Face"
+  },
+  "previous_boss": "cambocraft:laterite_phoenix",
+  "requires_rebirth": false
+}

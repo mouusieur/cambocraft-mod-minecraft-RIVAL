@@ -1,0 +1,16 @@
+{
+  "id": "cambocraft:forteresse_ombre",
+  "order": 7,
+  "name": {
+    "fr": "Forteresse Ombre",
+    "en": "Shadow Fortress"
+  },
+  "minimum_level": 110,
+  "boss": "cambocraft:shadow_general",
+  "boss_name": {
+    "fr": "Généralissime du clan Ombre",
+    "en": "Shadow Clan General"
+  },
+  "previous_boss": "cambocraft:stone_guardian",
+  "requires_rebirth": false
+}

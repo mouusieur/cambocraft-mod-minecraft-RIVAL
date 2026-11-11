@@ -1,0 +1,16 @@
+{
+  "id": "cambocraft:royaume_esprits",
+  "order": 12,
+  "name": {
+    "fr": "Royaume des Esprits",
+    "en": "Spirit Realm"
+  },
+  "minimum_level": 1,
+  "boss": "cambocraft:first_shadow",
+  "boss_name": {
+    "fr": "Ombre Première",
+    "en": "First Shadow"
+  },
+  "previous_boss": "cambocraft:balance_guardian",
+  "requires_rebirth": true
+}

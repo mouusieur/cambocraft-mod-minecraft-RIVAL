@@ -1,0 +1,16 @@
+{
+  "id": "cambocraft:iles_garudas",
+  "order": 10,
+  "name": {
+    "fr": "Îles des Garudas",
+    "en": "Garuda Islands"
+  },
+  "minimum_level": 165,
+  "boss": "cambocraft:storm_garuda",
+  "boss_name": {
+    "fr": "Garuda de la Tempête",
+    "en": "Storm Garuda"
+  },
+  "previous_boss": "cambocraft:awakened_face",
+  "requires_rebirth": false
+}

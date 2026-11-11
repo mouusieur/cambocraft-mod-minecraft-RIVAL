@@ -1,0 +1,16 @@
+{
+  "id": "cambocraft:tonle",
+  "order": 1,
+  "name": {
+    "fr": "Village de Tonlé",
+    "en": "Tonle Village"
+  },
+  "minimum_level": 1,
+  "boss": "cambocraft:river_chief",
+  "boss_name": {
+    "fr": "Chef des bandits de la rivière",
+    "en": "River Bandit Chief"
+  },
+  "previous_boss": null,
+  "requires_rebirth": false
+}

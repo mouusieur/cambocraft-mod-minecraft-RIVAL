@@ -9,7 +9,8 @@
       "org.cambocraft.gametest.WorldSmokeTests",
       "org.cambocraft.gametest.NenAttachmentTests",
       "org.cambocraft.gametest.PortalFrameTests",
-      "org.cambocraft.gametest.SeasonRuntimeTests"
+      "org.cambocraft.gametest.SeasonRuntimeTests",
+      "org.cambocraft.gametest.ZoneDataTests"
     ]
   },
   "depends": {

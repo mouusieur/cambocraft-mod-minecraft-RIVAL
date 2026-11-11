@@ -1,0 +1,16 @@
+{
+  "id": "cambocraft:srok",
+  "order": 3,
+  "name": {
+    "fr": "Bambouseraie de Srok",
+    "en": "Srok Bamboo Grove"
+  },
+  "minimum_level": 30,
+  "boss": "cambocraft:blade_master",
+  "boss_name": {
+    "fr": "Maître des lames",
+    "en": "Blade Master"
+  },
+  "previous_boss": "cambocraft:golden_buffalo",
+  "requires_rebirth": false
+}
