@@ -8,7 +8,8 @@
     "fabric-gametest": [
       "org.cambocraft.gametest.WorldSmokeTests",
       "org.cambocraft.gametest.NenAttachmentTests",
-      "org.cambocraft.gametest.PortalFrameTests"
+      "org.cambocraft.gametest.PortalFrameTests",
+      "org.cambocraft.gametest.SeasonRuntimeTests"
     ]
   },
   "depends": {

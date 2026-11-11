@@ -1,1 +1,7 @@
-{"block.cambocraft.lotus_stone":"Lotus Stone"}
+{
+  "block.cambocraft.lotus_stone": "Lotus Stone",
+  "season.cambocraft.dry": "Dry season",
+  "season.cambocraft.rainy": "Rainy season",
+  "season.cambocraft.cool": "Cool season",
+  "message.cambocraft.season": "Current season: %s"
+}

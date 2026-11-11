@@ -47,3 +47,7 @@
 ## 2026-11-11 — Persistance Fabric du carnet
 - Attachment Nen côté serveur, persistant et copié à la mort, avec conservation des octets de versions métier inconnues.
 - GameTests d'aller-retour NBT sur entité et d'archive invalide ; pas encore de test de cycle de vie joueur ou de transaction avec un bol.
+
+## 2026-11-11 — Horloge serveur saisonnière
+- Horloge sur l'Overworld, attachment persistant et notifications traduites dans la dimension ; durée configurable au démarrage.
+- Météo, niveau d'eau, riz et cycle de vie après redémarrage ne sont pas encore validés ; la CI de cette révision reste à exécuter.

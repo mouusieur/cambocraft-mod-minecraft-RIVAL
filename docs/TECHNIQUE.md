@@ -43,3 +43,9 @@ Les ressources `data/cambocraft/dimension/cambodia.json` et `dimension_type/camb
 `ModAttachments.NEN` est persistant, copié à la mort et non synchronisé. `PlayerNenStorage` ne prend qu'un joueur serveur. Il décode les octets avant chaque lecture et refuse d'écraser une archive existante illisible. Le codec Fabric ne décode pas l'état métier : il conserve les octets inconnus pour éviter une réinitialisation silencieuse. Les GameTests couvrent l'encodage/décodage NBT sur une entité et la conservation d'octets invalides, pas encore le cycle de vie d'un vrai joueur.
 
 L'attachment n'est utilisé par aucun tirage en jeu. La sauvegarde en mémoire, la consommation du bol et les compteurs ne sont pas transactionnels ; Fabric peut ignorer des données si le NBT est invalide avant le codec métier. Migration, sauvegardes de secours et tests de redémarrage sont indispensables. Les limites du codec sont toujours applicables.
+
+## Horloge serveur expérimentale
+
+`SeasonRuntime` avance un attachment `season_ticks` sur l'Overworld une fois par tick serveur et annonce les transitions aux joueurs présents dans `cambocraft:cambodia`. À la connexion dans cette dimension, la saison est annoncée. `-Dcambocraft.seasonDays=8` est le réglage par défaut (1 à 365) ; un changement reclassifie le compteur existant et n'est pas une migration de durée. Des données négatives ou saturées arrêtent l'horloge au lieu de les réinitialiser.
+
+Le calcul ne modifie pas encore l'eau, la pluie, les cultures ou les constructions et n'offre pas de HUD. Vérifier redémarrage, changement de dimension, multi-joueurs et performances avant usage réel.

@@ -86,3 +86,8 @@ La suite de tests a été étendue à six tests après la simulation : le balaya
 - [CI n° 43108213003](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43108213003) : build et deux GameTests réussis sur `48926b9` : enregistrement/placement de la pierre et chargement du type de dimension/présence de la ressource. Le serveur GameTest ne crée pas la dimension personnalisée ; ce test ne valide pas le voyage.
 - [CI n° 43108547322](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43108547322) : build, quatre GameTests et tests autonomes réussis sur `d500176`. Les deux nouveaux tests contrôlent un aller-retour NBT d'attachment sur un cochon et la conservation d'octets illisibles.
 - Non testés : véritable joueur, mort et copie, déconnexion/reconnexion, redémarrage, transition de dimension et transactions de gameplay. Les flags d'attachment sont vérifiés, pas leurs effets sur le cycle de vie réel.
+
+## Cadre de portail et horloge serveur
+
+- [CI n° 43108991083](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43108991083) : build et six GameTests réussis sur `015dd79`, dont deux tests de cadres 3×4 (axes, bloc manquant et intérieur obstrué). Le validateur de cadre n'est relié à aucun bol ni téléportation.
+- Un test de compteur serveur est ajouté ensuite mais son résultat CI doit être vérifié séparément ; il ne prouve pas une persistance après redémarrage ni la météo, le lac ou le riz en jeu.

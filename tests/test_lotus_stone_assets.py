@@ -31,6 +31,11 @@ class LotusStoneAssetsTest(unittest.TestCase):
     def test_localization_loot_and_recipe(self):
         for lang in ("fr_fr", "en_us"):
             self.assertTrue(load(ASSETS / f"lang/{lang}.json")["block.cambocraft.lotus_stone"])
+        french = load(ASSETS / "lang/fr_fr.json")
+        english = load(ASSETS / "lang/en_us.json")
+        self.assertEqual(french.keys(), english.keys())
+        self.assertEqual(french["message.cambocraft.season"].count("%s"), 1)
+        self.assertEqual(english["message.cambocraft.season"].count("%s"), 1)
         loot = load(DATA / "cambocraft/loot_table/blocks/lotus_stone.json")
         self.assertEqual(loot["pools"][0]["entries"][0]["name"], "cambocraft:lotus_stone")
         recipe = load(DATA / "cambocraft/recipe/lotus_stone.json")

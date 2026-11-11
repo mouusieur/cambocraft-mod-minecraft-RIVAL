@@ -1,1 +1,7 @@
-{"block.cambocraft.lotus_stone":"Pierre du Lotus"}
+{
+  "block.cambocraft.lotus_stone": "Pierre du Lotus",
+  "season.cambocraft.dry": "Saison sèche",
+  "season.cambocraft.rainy": "Saison des pluies",
+  "season.cambocraft.cool": "Saison fraîche",
+  "message.cambocraft.season": "Saison actuelle : %s"
+}

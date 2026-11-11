@@ -14,6 +14,9 @@ public final class ModAttachments {
     public static final AttachmentType<NenArchive> NEN = AttachmentRegistry.create(
             Identifier.of(Cambocraft.ID, "nen"), builder -> builder.persistent(ARCHIVE_CODEC).copyOnDeath());
 
+    public static final AttachmentType<Long> SEASON_TICKS = AttachmentRegistry.createPersistent(
+            Identifier.of(Cambocraft.ID, "season_ticks"), Codec.LONG);
+
     private ModAttachments() { }
     public static void initialize() { /* Déclenche l'enregistrement statique. */ }
 }
