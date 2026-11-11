@@ -24,12 +24,15 @@ with log_path.open('w', encoding='utf8') as log:
             time.sleep(1)
         else:
             raise TimeoutError('Démarrage serveur trop long')
-        subprocess.run(['node', 'tools/bot/portal.js'], cwd=ROOT, check=True, timeout=120)
+        result = subprocess.run(['node', 'tools/bot/portal.js'], cwd=ROOT, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=120)
+        print('BOT OUTPUT:', result.stdout[-4000:])
+        if result.returncode != 0:
+            raise RuntimeError('Client headless en échec')
         server.wait(timeout=30)
         if server.returncode != 0 or 'CAMBO_PLAYER_ROUNDTRIP_OK' not in log_path.read_text(encoding='utf8', errors='replace'):
             raise RuntimeError('Scénario serveur incomplet')
     except Exception:
-        print(log_path.read_text(encoding='utf8', errors='replace')[-18000:])
+        print('SERVER OUTPUT:', '\n'.join(log_path.read_text(encoding='utf8', errors='replace').splitlines()[-18:]))
         raise
     finally:
         if server.poll() is None:
