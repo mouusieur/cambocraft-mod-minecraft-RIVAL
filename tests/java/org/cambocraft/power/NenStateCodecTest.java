@@ -38,6 +38,18 @@ public final class NenStateCodecTest {
                 Map.of("cambocraft:feu", new PowerProgress(5, 300), "cambocraft:eau", new PowerProgress(2, 4)),
                 List.of("cambocraft:eau", "cambocraft:feu"), new NenState.Pending("cambocraft:ombre", Rarity.MYTHIQUE));
         byte[] data = NenStateCodec.encode(state);
+        NenArchive archive = NenArchive.ofState(state);
+        check(archive.read().equals(state), "Archive");
+        byte[] exposed = archive.toBuffer().array();
+        exposed[0] ^= 1;
+        check(archive.read().equals(state), "Copie défensive à la lecture");
+        byte[] wrapped = {0, 1, 2, 3, 0};
+        java.nio.ByteBuffer slice = java.nio.ByteBuffer.wrap(wrapped);
+        slice.position(1); slice.limit(4);
+        NenArchive unknown = NenArchive.fromBuffer(slice);
+        wrapped[1] = 9;
+        check(Arrays.equals(unknown.toBuffer().array(), new byte[]{1, 2, 3}), "Copie et limites du buffer");
+        invalid(unknown::read);
         check(NenStateCodec.decode(data).equals(state), "Aller-retour complet");
         check(NenStateCodec.decode(NenStateCodec.encode(NenState.initial())).equals(NenState.initial()), "État vide");
         NenState reordered = new NenState(state.pity(), Map.of("cambocraft:eau", new PowerProgress(2, 4),
