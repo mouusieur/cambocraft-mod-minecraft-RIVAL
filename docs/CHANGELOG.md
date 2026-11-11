@@ -16,3 +16,7 @@
 ## 2026-11-11 — Revue de la simulation et état de livraison
 - Contrôle exhaustif des 10 000 tickets et rejet des types non entiers.
 - Tableau de suivi des critères de livraison ; brouillons de guide et de page publique explicitement non publiables.
+
+## 2026-11-11 — Cœur de rareté P0
+- Implémentation Java autonome des probabilités et des garanties avec état immuable validé.
+- Tests Java et simulation de cinq millions de tirages par scénario sur le code Java lui-même ; aucune intégration en jeu ni persistance.

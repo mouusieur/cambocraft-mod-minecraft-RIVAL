@@ -27,3 +27,9 @@ CPython 3.11.2 ; 5 000 000 tirages **pour chaque scénario**, avec la même grai
 | Mythique | 0,50076 % | 0,69862 % |
 
 Les plus longues suites observées sans épique+, légendaire+ et mythique sont respectivement 30, 80 et 250 avec pity. Les données détaillées sont dans `simulation-gacha.json`. La RNG Python sert uniquement à la simulation : une implémentation serveur devra employer sa propre RNG, conserver les compteurs et tester les migrations et transactions atomiques avant intégration.
+
+## Cœur Java autonome
+
+`src/main/java/org/cambocraft/power/Gacha.java` et `PityState.java` implémentent les mêmes règles en Java, sans dépendance à Minecraft. `tools/test_java.sh --simulate` compile ce code avec un JDK 21, exécute ses tests puis simule cinq millions de tirages dans chaque scénario en appelant **ce code Java**. La sortie et la graine sont archivées dans `simulation-gacha-java.txt`. La RNG Java utilise un algorithme différent de Python, donc les résultats diffèrent. Les fréquences sans pity sont vérifiées à six écarts-types et les limites sont vérifiées à chaque tirage avec pity.
+
+Ce cœur n'est pas enregistré auprès de Fabric : aucun bol, inventaire, sauvegarde, paquet ou pouvoir jouable n'utilise encore ce code. Un futur appel serveur doit générer lui-même les tickets, appliquer la transition et enregistrer atomiquement le tirage et sa consommation.

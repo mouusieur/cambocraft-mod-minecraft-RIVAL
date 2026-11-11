@@ -24,3 +24,5 @@ Voir `docs/DECISIONS.md`, `docs/TESTS.md` et `CREDITS.md` pour les limites, vér
 ## Simulation expérimentale du gacha
 
 `python3 tools/gacha.py --draws 5000000 --seed 20261111` exécute chaque scénario (avec et sans pity). La simulation et les conventions de garantie sont expliquées dans `docs/PROBABILITES.md`. Elle est indépendante du mod : il n'y a pas encore de gacha jouable.
+
+Un cœur Java de rareté/garantie est également présent mais **pas raccordé au jeu**. Avec un JDK 21, exécuter `tools/test_java.sh --simulate` pour le compiler, le tester et simuler les tirages. Voir `docs/TESTS.md`.

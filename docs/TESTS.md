@@ -39,3 +39,10 @@ Client et serveur, GameTests, test du portail, intégration des systèmes en jeu
 | P2 non livrées estimées | Listées avec dépendances dans `ROADMAP.md` |
 
 La suite de tests a été étendue à six tests après la simulation : le balayage intégral des 10 000 tickets vérifie notamment la correspondance entre les bornes et les poids publiés.
+
+## Suite P0 — cœur Java autonome, 2026-11-11
+
+- `tools/test_java.sh --simulate` exécuté avec le runtime OpenJDK 21.0.8 de `jdk4py` et le compilateur Eclipse 3.46.100 du paquet npm `coc-java` : compilation Java 21 réussie, `GachaTest : OK`, puis 5 000 000 de tirages sans et 5 000 000 avec pity. Voir `simulation-gacha-java.txt`.
+- Les 10 000 tickets, les états invalides, les garanties, la priorité et les remises à zéro sont testés ; chaque scénario de simulation vérifie respectivement les écarts statistiques ou les bornes de pity.
+- `python3 -m unittest discover -s tests -v` : six tests Python réussis.
+- **Ce n'est pas `./gradlew build`** : le compilateur autonome ne teste ni Minecraft, ni Fabric, ni leur intégration. Aucun test en jeu n'a été exécuté.

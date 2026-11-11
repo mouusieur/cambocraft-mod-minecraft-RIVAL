@@ -10,5 +10,6 @@ jobs:
           distribution: temurin
           java-version: '21'
       - uses: gradle/actions/setup-gradle@v4
-      - run: ./gradlew build
+      - run: tools/test_java.sh --simulate
       - run: python3 -m unittest discover -s tests -v
+      - run: ./gradlew build

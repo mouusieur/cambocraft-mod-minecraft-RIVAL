@@ -22,3 +22,8 @@
 ## 2026-11-11 — Communication de l'état
 - **Choix :** conserver guide et page publique comme brouillons clairement non publiables, et suivre séparément chaque critère de la section 18.
 - **Alternative écartée :** annoncer comme fonctionnalités les objectifs de conception ou les résultats d'une simulation non intégrée ; cela masquerait l'absence de jeu et de tests Minecraft.
+
+## 2026-11-11 — Premier cœur P0 en Java
+- **Choix :** séparer les règles pures de rareté et de garantie de l'adaptateur Fabric. Un état immuable validé est renvoyé avec chaque tirage ; aucune décision cliente ni état global. La simulation Java appelle directement ces règles, en plus du simulateur Python indépendant.
+- **Alternative :** écrire des appels Fabric non vérifiables dans l'environnement actuel a été écarté pour ce lot ; la liaison au serveur reste indispensable, tout comme la consommation atomique des bols et la sauvegarde.
+- **Test :** JRE Java 21 temporaire fourni par `jdk4py` depuis PyPI ; compilateur Eclipse 3.46.100 temporaire contenu dans le paquet npm `coc-java` 1.56.0. Ces outils de test ne sont pas inclus dans le dépôt ni requis en production ; un JDK 21 suffit normalement. La compilation Fabric complète reste bloquée.
