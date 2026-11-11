@@ -23,12 +23,18 @@ java { withSourcesJar(); sourceCompatibility = JavaVersion.VERSION_21; targetCom
 
 // Les GameTests sont un mod de test séparé, jamais inclus dans le jar distribué.
 sourceSets {
+    servercheck {
+        compileClasspath += sourceSets.main.compileClasspath + sourceSets.main.output
+        runtimeClasspath += sourceSets.main.runtimeClasspath + sourceSets.main.output
+    }
     gametest {
         compileClasspath += sourceSets.main.compileClasspath + sourceSets.main.output
         runtimeClasspath += sourceSets.main.runtimeClasspath + sourceSets.main.output
     }
 }
 configurations {
+    servercheckImplementation.extendsFrom implementation
+    servercheckRuntimeOnly.extendsFrom runtimeOnly
     gametestImplementation.extendsFrom implementation
     gametestRuntimeOnly.extendsFrom runtimeOnly
 }
@@ -36,8 +42,15 @@ loom {
     mods {
         cambocraft { sourceSet sourceSets.main }
         cambocraft_gametest { sourceSet sourceSets.gametest }
+        cambocraft_servercheck { sourceSet sourceSets.servercheck }
     }
     runs {
+        servercheck {
+            server()
+            name 'Cambocraft Server Check'
+            source sourceSets.servercheck
+            runDir 'build/servercheck'
+        }
         gametest {
             server()
             name 'Cambocraft GameTest'

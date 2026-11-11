@@ -49,3 +49,9 @@ L'attachment n'est utilisé par aucun tirage en jeu. La sauvegarde en mémoire, 
 `SeasonRuntime` avance un attachment `season_ticks` sur l'Overworld une fois par tick serveur et annonce les transitions aux joueurs présents dans `cambocraft:cambodia`. À la connexion dans cette dimension, la saison est annoncée. `-Dcambocraft.seasonDays=8` est le réglage par défaut (1 à 365) ; un changement reclassifie le compteur existant et n'est pas une migration de durée. Des données négatives ou saturées arrêtent l'horloge au lieu de les réinitialiser.
 
 Le calcul ne modifie pas encore l'eau, la pluie, les cultures ou les constructions et n'offre pas de HUD. Vérifier redémarrage, changement de dimension, multi-joueurs et performances avant usage réel.
+
+## Zones expérimentales et progression
+
+Les douze fichiers `data/cambocraft/zones/*.json` sont des définitions bilingues rechargeables ; leur identifiant doit correspondre au chemin. Le chargeur exige exactement douze fichiers, une chaîne ordonnée de boss distincts, des niveaux valides et le drapeau de renaissance uniquement pour la dernière zone. Chaque fichier est limité à 16 384 caractères. Le candidat est préparé hors thread de jeu et la publication attend la réussite du rechargement global. Ce comportement avec des échecs de datapacks tiers n'a pas été vérifié en jeu ; aucun réseau ne synchronise encore ces données aux clients.
+
+`PlayerLevel` applique la formule provisoire `ceil(120 × niveau^1,8)` (niveau maximal 200) mais n'est relié ni à des joueurs, ni à des récompenses. `ZoneCatalog.access` est une fonction pure : le monde ne bloque pas encore les accès et aucune victoire n'est persistée. Les boss référencés n'existent pas en tant qu'entités. Les données ne sont pas équilibrées.

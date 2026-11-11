@@ -51,3 +51,7 @@
 ## 2026-11-11 — Horloge serveur saisonnière
 - Horloge sur l'Overworld, attachment persistant et notifications traduites dans la dimension ; durée configurable au démarrage.
 - Météo, niveau d'eau, riz et cycle de vie après redémarrage ne sont pas encore validés ; la CI de cette révision reste à exécuter.
+
+## 2026-11-11 — Définitions des zones et progression expérimentale
+- Douze définitions JSON bilingues, chargement par datapack et validation du chaînage ; calcul d'XP et des conditions d'accès dans un modèle pur.
+- Ces données ne créent ni zone, ni boss, ni restrictions réelles. Le rechargement avec erreur et le cycle joueur n'ont pas encore été testés.

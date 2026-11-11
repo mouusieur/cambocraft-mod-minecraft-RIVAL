@@ -91,3 +91,7 @@ La suite de tests a été étendue à six tests après la simulation : le balaya
 
 - [CI n° 43108991083](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43108991083) : build et six GameTests réussis sur `015dd79`, dont deux tests de cadres 3×4 (axes, bloc manquant et intérieur obstrué). Le validateur de cadre n'est relié à aucun bol ni téléportation.
 - Un test de compteur serveur est ajouté ensuite mais son résultat CI doit être vérifié séparément ; il ne prouve pas une persistance après redémarrage ni la météo, le lac ou le riz en jeu.
+
+- [CI n° 43109521223](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43109521223) : build et GameTest du compteur d'horloge réussis sur `e2bac76` ; aucun redémarrage testé à ce stade.
+- [CI n° 43110142041](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43110142041) : build et test du chargement des douze zones réussis sur `86f4cb1`. Le test ne vérifie pas le comportement de `/reload` ni des boss réels. Cinq suites Java et onze tests Python réussis.
+- Un nouveau test de serveur dédié et redémarrage est ajouté ensuite ; son résultat doit être vérifié sur la CI correspondante. Il n'inclut aucun joueur réel.

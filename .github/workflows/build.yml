@@ -19,6 +19,18 @@ jobs:
             grep -E 'ERROR|failed|Failed|Exception|Caused by:|dimension|tests? (passed|failed)|\[[-+X ]+\]' gametest.log | tail -n 25 | python3 -c 'import sys; s=sys.stdin.read().replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A"); print("::error::" + s)'
             exit 1
           }
+      - name: Serveur réel et redémarrage
+        run: |
+          trap 'for f in servercheck-*.log; do test ! -f "$f" || tail -n 80 "$f"; done' ERR
+          mkdir -p build/servercheck
+          echo 'eula=true' > build/servercheck/eula.txt
+          printf 'online-mode=false\nserver-port=0\nview-distance=2\nsimulation-distance=2\nspawn-protection=0\n' > build/servercheck/server.properties
+          timeout 300 ./gradlew runServercheck --console=plain > servercheck-first.log 2>&1
+          grep -q CAMBO_SERVER_WORLD_OK servercheck-first.log
+          grep -q CAMBO_SERVER_STOP_OK servercheck-first.log
+          CAMBO_RESTART_CHECK=1 timeout 300 ./gradlew runServercheck --console=plain > servercheck-restart.log 2>&1
+          grep -q CAMBO_SERVER_RESTART_OK servercheck-restart.log
+          grep -q CAMBO_SERVER_STOP_OK servercheck-restart.log
       - uses: actions/upload-artifact@v6
         with:
           name: cambocraft-jars

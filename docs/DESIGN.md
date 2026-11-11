@@ -18,7 +18,7 @@ Le serveur contrôlera possession, ressources, permissions, état, portée, cool
 
 ## Boucle et progression visées
 
-Le guide est rencontré dans l'Overworld afin d'obtenir la pierre et le bol nécessaires au portail : cela évite la contradiction d'une introduction située uniquement après le portail. Dans la dimension : exploration → objectif de quête → expérience/ressources → boss et déblocage → nouvelle zone ; les activités civiles et la réputation donnent des chemins parallèles. Le niveau et la victoire sur le boss précédent conditionnent les accès. Les limites de niveaux du cahier des charges se chevauchent : les niveaux indiqués ci-dessous sont des **prérequis minimaux**, pas des plages exclusives. Aucun accès ni chiffre n'est implémenté ou équilibré.
+Le guide est rencontré dans l'Overworld afin d'obtenir la pierre et le bol nécessaires au portail : cela évite la contradiction d'une introduction située uniquement après le portail. Dans la dimension : exploration → objectif de quête → expérience/ressources → boss et déblocage → nouvelle zone ; les activités civiles et la réputation donnent des chemins parallèles. Le niveau et la victoire sur le boss précédent conditionnent les accès. Les limites de niveaux du cahier des charges se chevauchent : les niveaux indiqués ci-dessous sont des **prérequis minimaux**, pas des plages exclusives. Les conditions et niveaux sont modélisés et chargés depuis des JSON, mais ne bloquent aucun accès en jeu et ne sont pas équilibrés.
 
 | # | Zone | Niveau minimal prévu | Boss prévu |
 |---|---|---:|---|

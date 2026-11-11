@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "id": "cambocraft_servercheck",
+  "version": "1.0.0",
+  "name": "Cambocraft Server Smoke Test",
+  "environment": "server",
+  "entrypoints": { "main": ["org.cambocraft.servercheck.ServerCheck"] },
+  "depends": { "cambocraft": "*", "fabric-api": "*" }
+}
