@@ -11,3 +11,10 @@
 - **Choix :** « après N tirages sans » signifie garantie au tirage suivant : 31, 81 et 251 au plus tard. Une rareté supérieure remet à zéro les compteurs inférieurs. Lorsque plusieurs garanties sont dues, la plus élevée l'emporte ; un résultat naturel supérieur n'est jamais abaissé.
 - **Alternative :** garantir dès le N-ième tirage a été écarté car cela signifierait après seulement N−1 échecs ; ces deux interprétations devront être annoncées explicitement aux joueurs.
 - **Portée :** outil de conception autonome, non connecté au jeu. Aucun état joueur n'est sauvegardé. L'intégration serveur, les choix de relance et les pouvoirs restent P0.
+
+## 2026-11-11 — Arbitrages de conception
+- **Introduction :** un premier guide dans l'Overworld remettra les composants du portail ; une introduction exclusivement dans la dimension créerait une dépendance circulaire. Aucun accès par commande n'est envisagé comme parcours joueur.
+- **Zones :** les limites communes 15, 30, etc. seront des prérequis minimaux ; une seule zone n'est pas attribuée exclusivement à chaque niveau. L'accès nécessitera aussi le boss précédent.
+- **Catalogue de pouvoirs :** prévoir au moins 84 pouvoirs, plutôt que 80, si chaque pouvoir a un seul élément : sept éléments × douze pouvoirs. L'alternative de pouvoirs multi-éléments aurait aussi résolu la contrainte mais ajouterait des ambiguïtés d'équilibrage ; elle reste possible après conception détaillée.
+- **Priorités contradictoires :** course de pirogues et Royaume des Esprits considérés P1 comme dans les critères de succès ; ils ne sont pas relégués au P2.
+- **Culture :** les références documentaires sont un premier repérage et ne remplacent pas une consultation de personnes cambodgiennes. Aucune œuvre tierce n'est incorporée.
