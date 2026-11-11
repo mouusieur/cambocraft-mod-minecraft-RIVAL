@@ -55,3 +55,6 @@
 ## 2026-11-11 — Définitions des zones et progression expérimentale
 - Douze définitions JSON bilingues, chargement par datapack et validation du chaînage ; calcul d'XP et des conditions d'accès dans un modèle pur.
 - Ces données ne créent ni zone, ni boss, ni restrictions réelles. Le rechargement avec erreur et le cycle joueur n'ont pas encore été testés.
+
+## 2026-11-11 — Recherche d'arrivée non destructive
+- Première vérification d'un sol et d'un espace libre autour d'une destination ; ne modifie pas le terrain. Aucun voyage n'est raccordé.

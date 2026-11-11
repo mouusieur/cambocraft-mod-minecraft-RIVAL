@@ -95,3 +95,6 @@ La suite de tests a été étendue à six tests après la simulation : le balaya
 - [CI n° 43109521223](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43109521223) : build et GameTest du compteur d'horloge réussis sur `e2bac76` ; aucun redémarrage testé à ce stade.
 - [CI n° 43110142041](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43110142041) : build et test du chargement des douze zones réussis sur `86f4cb1`. Le test ne vérifie pas le comportement de `/reload` ni des boss réels. Cinq suites Java et onze tests Python réussis.
 - Un nouveau test de serveur dédié et redémarrage est ajouté ensuite ; son résultat doit être vérifié sur la CI correspondante. Il n'inclut aucun joueur réel.
+
+- [CI n° 43116490122](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43116490122) : serveur dédié ordinaire sur `3aed312`, monde `cambocraft:cambodia` créé, douze zones chargées et compteur saisonnier restauré après arrêt propre et redémarrage. Pas de joueur, voyage, plantage brutal, ni validation de génération personnalisée.
+- Un GameTest de validation du sol d'arrivée est ajouté ensuite ; résultat CI à vérifier. La recherche reste non raccordée au portail.
