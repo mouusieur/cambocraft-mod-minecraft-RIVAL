@@ -20,3 +20,7 @@
 ## 2026-11-11 — Cœur de rareté P0
 - Implémentation Java autonome des probabilités et des garanties avec état immuable validé.
 - Tests Java et simulation de cinq millions de tirages par scénario sur le code Java lui-même ; aucune intégration en jeu ni persistance.
+
+## 2026-11-11 — Modèle du carnet P0
+- Catalogue immuable par rareté et transitions d'offre/choix ; conservation de la collection, équipement de trois pouvoirs, doublons et seuils de maîtrise paramétrés.
+- Tests de limites, copie défensive, catalogue modifié et état d'offre en attente. Pas d'interface, contenu jouable, sauvegarde Minecraft ni réseau.

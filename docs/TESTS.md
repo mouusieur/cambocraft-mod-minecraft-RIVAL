@@ -46,3 +46,9 @@ La suite de tests a été étendue à six tests après la simulation : le balaya
 - Les 10 000 tickets, les états invalides, les garanties, la priorité et les remises à zéro sont testés ; chaque scénario de simulation vérifie respectivement les écarts statistiques ou les bornes de pity.
 - `python3 -m unittest discover -s tests -v` : six tests Python réussis.
 - **Ce n'est pas `./gradlew build`** : le compilateur autonome ne teste ni Minecraft, ni Fabric, ni leur intégration. Aucun test en jeu n'a été exécuté.
+
+## Suite P0 — modèle autonome de carnet
+
+- `tools/test_java.sh --simulate` avec Eclipse Compiler et JRE 21 : compilation des classes de domaine et des deux suites `GachaTest` et `NenJournalTest` réussie ; simulation Java reproductible de 5 millions de tirages par scénario également réussie.
+- Vérifiés : validation du catalogue, tri des candidats, bornes de la RNG, verrou d'offre, acceptation/refus, doublons, plafonnement, seuils de maîtrise, trois emplacements, copies défensives et refus d'une offre rendue invalide par un changement de catalogue.
+- Tests Python : six réussis. Aucun test Fabric, de sauvegarde Minecraft ou de réseau : le carnet n'est pas en jeu. Seuils de maîtrise utilisés dans les tests (100 et 250) arbitraires et non équilibrés.

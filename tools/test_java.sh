@@ -11,6 +11,7 @@ else
   javac --release 21 -encoding UTF-8 -d "$tmp" src/main/java/org/cambocraft/power/*.java tests/java/org/cambocraft/power/*.java tools/java/org/cambocraft/power/*.java
 fi
 "${JAVA:-java}" -Dfile.encoding=UTF-8 -cp "$tmp" org.cambocraft.power.GachaTest
+"${JAVA:-java}" -Dfile.encoding=UTF-8 -cp "$tmp" org.cambocraft.power.NenJournalTest
 if [ "${1:-}" = "--simulate" ]; then
   "${JAVA:-java}" -Dfile.encoding=UTF-8 -cp "$tmp" org.cambocraft.power.GachaSimulation 5000000 20261111
 fi
