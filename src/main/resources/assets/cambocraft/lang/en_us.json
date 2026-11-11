@@ -3,5 +3,9 @@
   "season.cambocraft.dry": "Dry season",
   "season.cambocraft.rainy": "Rainy season",
   "season.cambocraft.cool": "Cool season",
-  "message.cambocraft.season": "Current season: %s"
+  "message.cambocraft.season": "Current season: %s",
+  "message.cambocraft.portal_frame": "Incomplete frame: build a vertical 3 × 4 frame around two air blocks.",
+  "message.cambocraft.portal_unavailable": "Destination unavailable.",
+  "message.cambocraft.portal_unsafe": "No safe landing nearby; travel cancelled.",
+  "message.cambocraft.portal_arrival": "Travel complete. To return, build another frame and use your bowl."
 }

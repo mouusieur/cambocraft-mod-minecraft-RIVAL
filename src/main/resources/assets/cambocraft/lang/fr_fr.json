@@ -3,5 +3,9 @@
   "season.cambocraft.dry": "Saison sèche",
   "season.cambocraft.rainy": "Saison des pluies",
   "season.cambocraft.cool": "Saison fraîche",
-  "message.cambocraft.season": "Saison actuelle : %s"
+  "message.cambocraft.season": "Saison actuelle : %s",
+  "message.cambocraft.portal_frame": "Cadre incomplet : construire un cadre vertical 3 × 4 autour de deux blocs d’air.",
+  "message.cambocraft.portal_unavailable": "Destination indisponible.",
+  "message.cambocraft.portal_unsafe": "Aucune arrivée sûre à proximité ; voyage annulé.",
+  "message.cambocraft.portal_arrival": "Voyage accompli. Pour revenir, construisez un autre cadre et utilisez votre bol."
 }

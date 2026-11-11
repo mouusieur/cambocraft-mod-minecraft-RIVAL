@@ -57,3 +57,7 @@ Les douze fichiers `data/cambocraft/zones/*.json` sont des définitions bilingue
 `PlayerLevel` applique la formule provisoire `ceil(120 × niveau^1,8)` (niveau maximal 200) mais n'est relié ni à des joueurs, ni à des récompenses. `ZoneCatalog.access` est une fonction pure : le monde ne bloque pas encore les accès et aucune victoire n'est persistée. Les boss référencés n'existent pas en tant qu'entités. Les données ne sont pas équilibrées.
 
 `SafePortalLanding` teste un sol plein, non dangereux et sec ainsi que deux blocs d'air, puis peut chercher une surface existante dans un rayon de huit blocs. La recherche est bornée et ne construit rien, mais peut charger des chunks, ne protège pas des monstres et n'est pas reliée à une téléportation.
+
+## Portail de test
+
+En Overworld ou en Cambocraft, avec un bol vanilla en main principale, utiliser la pierre inférieure centrale d'un cadre vertical 3×4 vide : le serveur vérifie les conditions puis cherche une surface existante dans l'autre dimension près des mêmes coordonnées X/Z. Le bol n'est pas consommé et une temporisation de 100 ticks s'applique après succès. Le retour demande de construire un autre cadre, ne mémorise pas le cadre d'origine, et peut échouer faute de sol convenable. Pas de génération naturelle ni d'aspect portail ; arrivée exposée aux monstres et voyager avec un véhicule ou des passagers est refusé. À tester avec de vrais clients avant toute utilisation hors monde jetable.

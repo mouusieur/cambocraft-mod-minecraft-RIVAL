@@ -5,6 +5,7 @@ import org.cambocraft.registry.ModBlocks;
 import org.cambocraft.registry.ModAttachments;
 import org.cambocraft.registry.ZoneData;
 import org.cambocraft.world.SeasonRuntime;
+import org.cambocraft.world.LotusPortal;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,6 +19,7 @@ public final class Cambocraft implements ModInitializer {
         ModBlocks.initialize();
         ModAttachments.initialize();
         SeasonRuntime.initialize();
+        LotusPortal.initialize();
         ZoneData.initialize();
         LOGGER.info("Initialisation des fondations Cambocraft");
     }

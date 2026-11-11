@@ -98,3 +98,6 @@ La suite de tests a été étendue à six tests après la simulation : le balaya
 
 - [CI n° 43116490122](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43116490122) : serveur dédié ordinaire sur `3aed312`, monde `cambocraft:cambodia` créé, douze zones chargées et compteur saisonnier restauré après arrêt propre et redémarrage. Pas de joueur, voyage, plantage brutal, ni validation de génération personnalisée.
 - Un GameTest de validation du sol d'arrivée est ajouté ensuite ; résultat CI à vérifier. La recherche reste non raccordée au portail.
+
+- [CI n° 43116953405](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43116953405) : GameTest de sol, obstacles et eau réussi sur `4878761`, ainsi que serveur et redémarrage. Il ne vérifie pas la recherche sur un terrain généré ni le voyage.
+- Le prototype de voyage ajouté ensuite n'a pas encore été testé avec un joueur réel. Un build CI ne prouve ni passage ni retour.

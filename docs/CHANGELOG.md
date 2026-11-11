@@ -58,3 +58,7 @@
 
 ## 2026-11-11 — Recherche d'arrivée non destructive
 - Première vérification d'un sol et d'un espace libre autour d'une destination ; ne modifie pas le terrain. Aucun voyage n'est raccordé.
+
+## 2026-11-11 — Prototype de voyage par cadre
+- Interaction expérimentale serveur avec un bol sur un cadre de Pierre du Lotus ; recherche d'une surface existante et refus si elle est absente. Retour par un second cadre à construire.
+- Aucune validation par joueur réel au moment de l'ajout, pas de portail naturel ni de retour automatique au cadre d'origine ; réservé aux mondes de test.
