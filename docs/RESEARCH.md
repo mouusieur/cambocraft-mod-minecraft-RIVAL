@@ -20,3 +20,7 @@ Recherche encore nécessaire : Jigsaw et placement des structures en 1.21.1, gé
 - [Présentation de Bon Om Touk](https://www.mototomcambodia.com/newsvideos/cambodias-water-festival-a-celebration-of-nature-and-history) : courses et bateaux illuminés ; proposition de fête fictive inspirée, et non reproduction d'un rite.
 
 À approfondir avant production : consultation rémunérée de personnes cambodgiennes, toponymie, folklore des Neak Ta, musique, fêtes, artisanat et histoire ; langues et variantes régionales. Les sources touristiques ne suffisent pas à établir une représentation complète ou authentique.
+
+### Référence de schéma 1.21.1
+
+- [mcmeta — données extraites 1.21.1](https://github.com/misode/mcmeta/tree/1.21.1-data-json/data/minecraft) : comparaison des champs de type de dimension et de générateur aux valeurs vanilla de cette version. Aucun test de chargement n'a pu être fait ; le terrain et le biome utilisés sont des références vanilla provisoires, pas des assets importés.

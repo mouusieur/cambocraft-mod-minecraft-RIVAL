@@ -15,7 +15,7 @@ Client et serveur, GameTests, test du portail, intégration des systèmes en jeu
 | Critère | État au 2026-11-11 |
 |---|---|
 | `./gradlew build` | Non vérifié : téléchargement bloqué, aucun jar final |
-| Dimension et portail naturels | Non implémentés |
+| Dimension et portail naturels | Déclaration de dimension expérimentale ajoutée ; chargement non testé et portail absent |
 | Saisons, lac, riz | Non implémentés |
 | 12 zones et boss | Non implémentés |
 | 80 pouvoirs jouables et persistants | Non implémentés |
@@ -63,3 +63,9 @@ La suite de tests a été étendue à six tests après la simulation : le balaya
 
 - `tools/test_java.sh --simulate` : quatre suites Java réussies, dont `SeasonClockTest` ; compilation Eclipse en mode Java 21. Les tests couvrent durée par défaut et configurable, jours et transitions, continuité de la crue, niveaux et bornes, entrées invalides et très grands temps.
 - Le modèle est purement numérique : pas de test Minecraft, modification de blocs, météo, temps persistant ou cycle du riz. Les critères de saisons et de Grand Lac restent non atteints.
+
+## Suite P0 — ressources de dimension
+
+- Huit tests Python réussis, dont deux contrôles statiques des JSON de dimension et du type (identifiants, géométrie, éclairage et paramètres de génération attendus).
+- Quatre suites Java autonomes réussies. Le schéma des champs a été comparé aux données `1.21.1-data-json` de mcmeta ; ce n'est pas un test des codecs de Minecraft.
+- `./gradlew build` reste bloqué au téléchargement de Gradle ; le chargement réel de la dimension, les biomes et les portails ne sont pas validés.

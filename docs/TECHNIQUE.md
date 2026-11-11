@@ -29,3 +29,7 @@ L'état de domaine n'a pas de limite logique de collection, mais le codec actuel
 ## Modèle de saisons
 
 `SeasonClock.sample` calcule à partir d'un âge de monde monotone une saison, un jour, un tick et une fraction de niveau du lac. La durée est configurable au constructeur (huit jours par défaut). `lakeHeight(min,max)` arrondit cette fraction entre deux niveaux donnés ; il ne touche pas au monde. Le futur serveur devra fournir un compteur persistant (pas `timeOfDay`), synchroniser l'affichage et planifier toute modification de terrain avec un budget et une protection des constructions. Aucun de ces raccordements n'existe encore.
+
+## Déclaration de dimension expérimentale
+
+Les ressources `data/cambocraft/dimension/cambodia.json` et `dimension_type/cambodia.json` déclarent respectivement la dimension et son type. La génération emploie provisoirement `minecraft:overworld` et un biome fixe `minecraft:jungle` ; il n'existe ni portail ni bruit ou biomes personnalisés. Les tests Python valident quelques invariants statiques mais ne vérifient pas la désérialisation ou le chargement Minecraft. **Non prêt pour un monde de production.**

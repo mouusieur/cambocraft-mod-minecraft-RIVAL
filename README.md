@@ -1,6 +1,6 @@
 # Cambocraft
 
-**État : fondations expérimentales, pas un mod jouable.** Aucun portail, dimension ou système de progression n'est encore intégré. Ne pas installer dans un monde auquel vous tenez.
+**État : fondations expérimentales, pas un mod jouable.** Une déclaration expérimentale de dimension existe, mais elle n'a pas été chargée en jeu ; aucun portail ni système de progression n'est encore intégré. Ne pas installer dans un monde auquel vous tenez.
 
 ## Développement
 

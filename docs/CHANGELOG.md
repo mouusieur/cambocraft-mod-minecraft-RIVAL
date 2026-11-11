@@ -32,3 +32,7 @@
 ## 2026-11-11 — Modèle du cycle saisonnier P0
 - Horloge Java pure : trois saisons configurables et niveau cible du lac continu, avec tests de transitions et de bornes.
 - Aucune modification du monde, météo, rizière ou persistance Fabric : le cycle n'est pas visible en jeu.
+
+## 2026-11-11 — Déclaration initiale de dimension
+- Ressources expérimentales pour `cambocraft:cambodia` et son type, avec terrain et biome vanilla provisoires ; contrôles statiques Python.
+- Pas de lancement Minecraft, portail, biomes personnalisés ou génération finale : la dimension n'est pas jouable normalement.
