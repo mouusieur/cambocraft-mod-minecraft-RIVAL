@@ -33,3 +33,7 @@ L'état de domaine n'a pas de limite logique de collection, mais le codec actuel
 ## Déclaration de dimension expérimentale
 
 Les ressources `data/cambocraft/dimension/cambodia.json` et `dimension_type/cambodia.json` déclarent respectivement la dimension et son type. La génération emploie provisoirement `minecraft:overworld` et un biome fixe `minecraft:jungle` ; il n'existe ni portail ni bruit ou biomes personnalisés. Les tests Python valident quelques invariants statiques mais ne vérifient pas la désérialisation ou le chargement Minecraft. **Non prêt pour un monde de production.**
+
+## Pierre du Lotus expérimentale
+
+`ModBlocks` enregistre le bloc et son `BlockItem` sur les deux environnements, ainsi qu'une entrée créative. Ressources sous `assets/cambocraft/` et `data/cambocraft/` ; texture régénérable avec `python3 tools/generate_lotus_texture.py`. Une recette de test fabrique quatre pierres à partir de quatre grès et d'une teinture rose. Elle est provisoire, ne remplace pas la quête et ne crée pas de portail.

@@ -2,14 +2,19 @@ name: Vérifications
 on: [push, pull_request]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '21'
-      - uses: gradle/actions/setup-gradle@v4
+      - uses: gradle/actions/setup-gradle@v6
       - run: tools/test_java.sh --simulate
       - run: python3 -m unittest discover -s tests -v
       - run: ./gradlew build
+      - uses: actions/upload-artifact@v6
+        with:
+          name: cambocraft-jars
+          path: build/libs/*.jar
+          if-no-files-found: error

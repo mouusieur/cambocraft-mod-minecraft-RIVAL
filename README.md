@@ -13,7 +13,7 @@ Prérequis : JDK 21, Python 3 et accès aux dépôts Fabric, Maven Central, Grad
 python3 -m unittest discover -s tests -v
 ```
 
-Le jar remappé est attendu dans `build/libs/` après une compilation réussie. Le socle n'a pas encore été compilé dans cet environnement. Pour une future installation, utiliser Minecraft 1.21.1 avec Fabric Loader et l'API Fabric indiqués dans `gradle.properties`, puis placer le jar et l'API Fabric dans `mods/`. Ce n'est pas une version distribuable aujourd'hui.
+Le jar remappé est attendu dans `build/libs/` après une compilation réussie. Le build Fabric a réussi en CI GitHub sur la révision `7865626` ; le build local reste bloqué par le réseau. Pour une future installation, utiliser Minecraft 1.21.1 avec Fabric Loader et l'API Fabric indiqués dans `gradle.properties`, puis placer le jar et l'API Fabric dans `mods/`. Ce n'est pas une version distribuable aujourd'hui.
 
 ## Dépendances
 

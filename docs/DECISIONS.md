@@ -48,3 +48,8 @@
 - **Choix :** déclarer `cambocraft:cambodia` et son type en ressources 1.21.1 ; utiliser provisoirement le générateur de bruit de l'Overworld et le biome jungle vanilla. Les valeurs de hauteur et les champs requis ont été comparés aux données de la version 1.21.1. L'identifiant et l'éclairage sont propres au projet.
 - **Alternative :** inventer 14 biomes ou des réglages de terrain non vérifiés aurait donné une fausse impression de contenu complet. Cette dimension de travail est un seul biome et ne remplit pas le P0 ; elle devra être remplacée par la génération demandée et vérifiée en jeu.
 - **Limites :** aucune validation par le chargeur de Minecraft, aucun portail naturel, retour ou garantie de compatibilité de sauvegarde. Les contrôles Python vérifient uniquement la structure et les valeurs attendues. Ne pas utiliser dans un monde de production.
+
+## 2026-11-11 — Première pierre et vérification CI
+- **Choix :** enregistrer la Pierre du Lotus côté commun, avec modèle, loot, texte fr/en et texture originale générée par script. Une recette provisoire de grès et de teinture rose permet d'en fabriquer pour les tests.
+- **Alternative :** attendre le guide ou la génération des temples empêcherait d'essayer le bloc avant ces systèmes. La recette est provisoire et devra être remplacée ou rééquilibrée lors de l'implémentation de la quête d'introduction ; elle ne fait pas office de portail.
+- **Build :** la CI GitHub, déclenchée depuis la branche de travail, a pu accéder aux dépendances : le build Fabric de `7865626` y a réussi. Le build local reste bloqué et aucun client/serveur Minecraft n'a été lancé. L'upload CI des jars est ajouté pour faciliter la vérification des futures révisions, mais ne transforme pas cette version en livraison.

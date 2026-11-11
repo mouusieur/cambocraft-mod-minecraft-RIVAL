@@ -36,3 +36,7 @@
 ## 2026-11-11 — Déclaration initiale de dimension
 - Ressources expérimentales pour `cambocraft:cambodia` et son type, avec terrain et biome vanilla provisoires ; contrôles statiques Python.
 - Pas de lancement Minecraft, portail, biomes personnalisés ou génération finale : la dimension n'est pas jouable normalement.
+
+## 2026-11-11 — Première pierre et build CI
+- Premier bloc Pierre du Lotus enregistré, traduit et muni d'une texture originale, d'un loot et d'une recette de test provisoire.
+- Build Fabric de la révision `7865626` réussi en CI GitHub ; la vérification de la révision incluant le bloc reste à faire. Aucun lancement en jeu ni portail.

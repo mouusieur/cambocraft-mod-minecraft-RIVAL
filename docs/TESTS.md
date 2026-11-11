@@ -14,7 +14,7 @@ Client et serveur, GameTests, test du portail, intégration des systèmes en jeu
 
 | Critère | État au 2026-11-11 |
 |---|---|
-| `./gradlew build` | Non vérifié : téléchargement bloqué, aucun jar final |
+| `./gradlew build` | Réussi en CI sur `7865626` ; téléchargement bloqué localement, mod non livrable |
 | Dimension et portail naturels | Déclaration de dimension expérimentale ajoutée ; chargement non testé et portail absent |
 | Saisons, lac, riz | Non implémentés |
 | 12 zones et boss | Non implémentés |
@@ -69,3 +69,9 @@ La suite de tests a été étendue à six tests après la simulation : le balaya
 - Huit tests Python réussis, dont deux contrôles statiques des JSON de dimension et du type (identifiants, géométrie, éclairage et paramètres de génération attendus).
 - Quatre suites Java autonomes réussies. Le schéma des champs a été comparé aux données `1.21.1-data-json` de mcmeta ; ce n'est pas un test des codecs de Minecraft.
 - `./gradlew build` reste bloqué au téléchargement de Gradle ; le chargement réel de la dimension, les biomes et les portails ne sont pas validés.
+
+## Build distant et pierre du Lotus
+
+- [CI GitHub n° 43106595371](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43106595371) : `./gradlew build`, simulation Java et tests Python **réussis** sur le commit `7865626`. Ce build précède l'ajout de la pierre ; voir le prochain résultat CI pour le nouveau code.
+- Dix tests Python réussis localement après ajout de la pierre : deux nouveaux contrôles statiques du modèle, de la texture, des traductions, de la recette et du loot. Quatre suites Java autonomes réussies.
+- Aucune inspection visuelle, aucun lancement client ou serveur et aucun test en jeu. Les recettes et tables de loot n'ont pas été validées par Minecraft.
