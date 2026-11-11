@@ -75,3 +75,8 @@ La suite de tests a été étendue à six tests après la simulation : le balaya
 - [CI GitHub n° 43106595371](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43106595371) : `./gradlew build`, simulation Java et tests Python **réussis** sur le commit `7865626`. Ce build précède l'ajout de la pierre ; voir le prochain résultat CI pour le nouveau code.
 - Dix tests Python réussis localement après ajout de la pierre : deux nouveaux contrôles statiques du modèle, de la texture, des traductions, de la recette et du loot. Quatre suites Java autonomes réussies.
 - Aucune inspection visuelle, aucun lancement client ou serveur et aucun test en jeu. Les recettes et tables de loot n'ont pas été validées par Minecraft.
+
+## Premier essai de GameTest
+
+- Le build Fabric de [la révision `81f5cd7`](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43107039443) a réussi et les jars ont été publiés comme artefact CI. Le bloc n'avait pas encore été testé dans Minecraft à cette révision.
+- Un premier serveur GameTest a démarré en CI et deux tests ont été exécutés, mais celui qui exigeait un monde personnalisé a échoué. Ce serveur spécial ne crée que les trois dimensions vanilla ; le test est remplacé par une vérification plus limitée du type et de la présence de la ressource. La création de `cambocraft:cambodia` sur un serveur ordinaire reste à tester. La réussite du nouveau test ne doit pas être supposée avant exécution CI.

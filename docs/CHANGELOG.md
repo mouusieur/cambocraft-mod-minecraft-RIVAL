@@ -40,3 +40,6 @@
 ## 2026-11-11 — Première pierre et build CI
 - Premier bloc Pierre du Lotus enregistré, traduit et muni d'une texture originale, d'un loot et d'une recette de test provisoire.
 - Build Fabric de la révision `7865626` réussi en CI GitHub ; la vérification de la révision incluant le bloc reste à faire. Aucun lancement en jeu ni portail.
+
+## 2026-11-11 — GameTests
+- Début des GameTests Fabric séparés du jar distribué. Premier lancement : échec du test exigeant une dimension complète dans le serveur GameTest ; ce serveur ne crée pas les mondes personnalisés. Test réorienté vers le type et la ressource, sans prétendre tester le monde complet.

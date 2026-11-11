@@ -53,3 +53,7 @@
 - **Choix :** enregistrer la Pierre du Lotus côté commun, avec modèle, loot, texte fr/en et texture originale générée par script. Une recette provisoire de grès et de teinture rose permet d'en fabriquer pour les tests.
 - **Alternative :** attendre le guide ou la génération des temples empêcherait d'essayer le bloc avant ces systèmes. La recette est provisoire et devra être remplacée ou rééquilibrée lors de l'implémentation de la quête d'introduction ; elle ne fait pas office de portail.
 - **Build :** la CI GitHub, déclenchée depuis la branche de travail, a pu accéder aux dépendances : le build Fabric de `7865626` y a réussi. Le build local reste bloqué et aucun client/serveur Minecraft n'a été lancé. L'upload CI des jars est ajouté pour faciliter la vérification des futures révisions, mais ne transforme pas cette version en livraison.
+
+## 2026-11-11 — Limite du serveur GameTest
+- **Choix :** vérifier dans le serveur de test le registre du type de dimension et l'existence de la ressource de dimension, puis réserver la validation de création du monde à un serveur ordinaire.
+- **Raison :** un premier test exigeant un `ServerWorld` personnalisé a échoué ; le serveur GameTest de Minecraft ne crée que ses mondes de test vanilla. Voir `RESEARCH.md`. La modification du test ne prouve donc pas que la dimension complète se charge sur un serveur normal.

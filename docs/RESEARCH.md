@@ -24,3 +24,7 @@ Recherche encore nécessaire : Jigsaw et placement des structures en 1.21.1, gé
 ### Référence de schéma 1.21.1
 
 - [mcmeta — données extraites 1.21.1](https://github.com/misode/mcmeta/tree/1.21.1-data-json/data/minecraft) : comparaison des champs de type de dimension et de générateur aux valeurs vanilla de cette version. Aucun test de chargement n'a pu être fait ; le terrain et le biome utilisés sont des références vanilla provisoires, pas des assets importés.
+
+### Limite du serveur GameTest
+
+- [Fabric API — test de dimensions](https://github.com/FabricMC/fabric-api/blob/1.17/fabric-dimensions-v1/src/testmod/java/net/fabricmc/fabric/test/dimension/FabricDimensionTest.java) et [retour sur le serveur GameTest](https://github.com/rehan-remade/universal-modder/pull/237) : le serveur GameTest peut ne pas créer les dimensions personnalisées. Un test cherchant `server.getWorld(cambocraft:cambodia)` a échoué en CI ; les journaux de ce serveur ne montrent que les trois mondes vanilla. Il faut tester le chargement du type dans GameTest puis vérifier la dimension complète sur un monde/serveur ordinaire, sans assimiler les deux tests.
