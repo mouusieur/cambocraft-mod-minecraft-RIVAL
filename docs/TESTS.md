@@ -112,3 +112,6 @@ La suite de tests a été étendue à six tests après la simulation : le balaya
 - Le scénario est ensuite modifié pour envoyer de vrais paquets de clic depuis le bot ; son résultat est à vérifier séparément.
 
 - [CI n° 43120939983](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43120939983) : aller-retour avec deux paquets `block_place` réseau sur la révision `85fb439`, destination artificiellement préparée ; client headless, pas de client graphique. Le retour par bol accroupi et son point sauvegardé sont ajoutés ensuite et restent à vérifier.
+
+- [CI n° 43121381869](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43121381869) : départ par clic réseau et retour accroupi avec le bol au point enregistré sur `c9685af`, dans un monde de test à destination préparée. Le bol est conservé et le point de retour supprimé après succès. Mort et reconnexion n'étaient pas testées dans ce scénario.
+- Un scénario supplémentaire de déconnexion/reconnexion et de relecture du Nen est ajouté ensuite ; résultat CI à vérifier.

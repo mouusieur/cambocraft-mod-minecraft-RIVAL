@@ -29,7 +29,8 @@ with log_path.open('w', encoding='utf8') as log:
         if result.returncode != 0:
             raise RuntimeError('Client headless en échec')
         server.wait(timeout=30)
-        if server.returncode != 0 or 'CAMBO_PLAYER_ROUNDTRIP_OK' not in log_path.read_text(encoding='utf8', errors='replace'):
+        if server.returncode != 0 or any(marker not in log_path.read_text(encoding='utf8', errors='replace')
+                                         for marker in ('CAMBO_PLAYER_ROUNDTRIP_OK', 'CAMBO_PLAYER_RECONNECT_OK')):
             raise RuntimeError('Scénario serveur incomplet')
     except Exception:
         print('SERVER OUTPUT:', '\n'.join(log_path.read_text(encoding='utf8', errors='replace').splitlines()[-18:]))

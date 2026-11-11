@@ -13,6 +13,12 @@ import net.minecraft.text.Text;
 import org.cambocraft.registry.ModBlocks;
 import org.cambocraft.registry.ModAttachments;
 import org.cambocraft.world.LotusPortal;
+import org.cambocraft.power.NenState;
+import org.cambocraft.power.PityState;
+import org.cambocraft.power.PlayerNenStorage;
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 /** Scénario destructif uniquement dans le monde éphémère de la CI. */
 @SuppressWarnings("UnstableApiUsage")
@@ -26,6 +32,20 @@ public final class PortalPlayerCheck {
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
             if (player != null || !handler.player.getGameProfile().getName().equals("CamboBot")) return;
             player = handler.player;
+            if (phase == 4) {
+                if (!player.getServerWorld().getRegistryKey().equals(LotusPortal.CAMBODIA)
+                        || !new BlockPos(10, 101, 10).equals(player.getAttached(ModAttachments.PORTAL_RETURN)))
+                    throw new AssertionError("Dimension ou point de retour perdu après reconnexion");
+                try {
+                    if (!PlayerNenStorage.read(player).equals(testNen())) throw new AssertionError("Nen perdu après reconnexion");
+                } catch (IOException ex) { throw new AssertionError("Nen illisible après reconnexion", ex); }
+                System.out.println("CAMBO_PLAYER_RECONNECT_OK");
+                phase = 2;
+                ticks = 0;
+                return;
+            }
+            try { PlayerNenStorage.write(player, testNen()); }
+            catch (IOException ex) { throw new AssertionError("Écriture Nen échouée", ex); }
             player.getInventory().setStack(0, new ItemStack(Items.BOWL));
             ServerWorld world = server.getOverworld();
             player.teleport(world, 10.5, 101, 10.5, 0, 0);
@@ -57,8 +77,10 @@ public final class PortalPlayerCheck {
                 if (!player.getMainHandStack().isOf(Items.BOWL)) throw new AssertionError("Bol consommé");
                 if (!new BlockPos(10, 101, 10).equals(player.getAttached(ModAttachments.PORTAL_RETURN)))
                     throw new AssertionError("Point de retour manquant");
-                phase = 2;
+                phase = 4;
                 ticks = 0;
+                player.networkHandler.disconnect(Text.literal("CAMBO_RECONNECT"));
+                player = null;
                 return;
             }
             if (phase == 22 && player.getServerWorld().getRegistryKey().equals(World.OVERWORLD)) {
@@ -78,6 +100,10 @@ public final class PortalPlayerCheck {
                 server.stop(false);
             }
         });
+    }
+
+    private static NenState testNen() {
+        return new NenState(new PityState(1, 2, 3), Map.of(), List.of(), null);
     }
 
     private static BlockPos makeFrame(ServerWorld world, BlockPos base) {

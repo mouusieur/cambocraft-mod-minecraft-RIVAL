@@ -69,3 +69,4 @@
 
 ## 2026-11-11 — Point de retour expérimental
 - Un point de retour sauvegardé peut être utilisé avec un bol en étant accroupi ; départ et rappel sont refusés s'il n'existe pas de surface sûre. Résultat du scénario réseau à vérifier en CI.
+- Ajout d'un scénario de reconnexion et relecture du Nen ; résultat CI à vérifier.

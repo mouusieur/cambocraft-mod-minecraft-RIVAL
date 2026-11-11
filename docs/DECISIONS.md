@@ -90,3 +90,6 @@
 ## 2026-11-11 — Point de retour sauvegardé
 - **Choix :** au départ, enregistrer sur le joueur un point sûr de l'Overworld via un attachment persistant copié à la mort. En Cambocraft, utiliser le bol dans le vide en étant accroupi rappelle au point enregistré ou sur une surface proche ; le point n'est effacé qu'après succès. Un cadre de retour peut aussi être utilisé. Aucun bloc n'est détruit pour fabriquer une arrivée.
 - **Raison :** éviter d'imposer dix pierres supplémentaires à un joueur pour sortir. Le serveur refuse un départ sans point de retour et un rappel sans point ou sans surface sûre ; la conservation du bol reste indispensable. Le changement de terrain, la perte du bol, une donnée d'attachment corrompue ou la présence de monstres restent des risques ; reconnexion, mort et crash ne sont pas encore testés.
+
+## 2026-11-11 — Vérifier les attachments par reconnexion
+- **Choix :** le bot se déconnecte en dimension Cambocraft et se reconnecte avant le rappel ; le serveur compare le point de retour, la dimension et un état Nen non vide. Ce test ne simule pas un redémarrage ou un crash du serveur, ni une mort.
