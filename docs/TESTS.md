@@ -80,3 +80,9 @@ La suite de tests a été étendue à six tests après la simulation : le balaya
 
 - Le build Fabric de [la révision `81f5cd7`](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43107039443) a réussi et les jars ont été publiés comme artefact CI. Le bloc n'avait pas encore été testé dans Minecraft à cette révision.
 - Un premier serveur GameTest a démarré en CI et deux tests ont été exécutés, mais celui qui exigeait un monde personnalisé a échoué. Ce serveur spécial ne crée que les trois dimensions vanilla ; le test est remplacé par une vérification plus limitée du type et de la présence de la ressource. La création de `cambocraft:cambodia` sur un serveur ordinaire reste à tester. La réussite du nouveau test ne doit pas être supposée avant exécution CI.
+
+## GameTests et attachment Nen
+
+- [CI n° 43108213003](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43108213003) : build et deux GameTests réussis sur `48926b9` : enregistrement/placement de la pierre et chargement du type de dimension/présence de la ressource. Le serveur GameTest ne crée pas la dimension personnalisée ; ce test ne valide pas le voyage.
+- [CI n° 43108547322](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43108547322) : build, quatre GameTests et tests autonomes réussis sur `d500176`. Les deux nouveaux tests contrôlent un aller-retour NBT d'attachment sur un cochon et la conservation d'octets illisibles.
+- Non testés : véritable joueur, mort et copie, déconnexion/reconnexion, redémarrage, transition de dimension et transactions de gameplay. Les flags d'attachment sont vérifiés, pas leurs effets sur le cycle de vie réel.

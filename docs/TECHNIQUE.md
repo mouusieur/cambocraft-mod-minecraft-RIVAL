@@ -18,13 +18,13 @@ Avec un JDK 21, `tools/test_java.sh --simulate` compile et teste ces seules clas
 
 `PowerCatalog` est un instantané immuable regroupant des identifiants uniques par rareté. `NenJournal.offer` reçoit une source de nombres aléatoires bornée ; il appelle le cœur de gacha puis sélectionne un pouvoir. `NenJournal.resolve` accepte ou rejette une offre, sans perdre les acquisitions précédentes ; `NenState.equip` valide jusqu'à trois pouvoirs possédés distincts. `PowerProgress` conserve exemplaires et maîtrise, mais les seuils de maîtrise sont à définir et équilibrer. L'absence d'offre en attente est requise avant tout nouveau tirage.
 
-Ces types constituent un contrat de domaine **sans persistance, catalogue JSON, synchronisation, UI, bol, transaction ou liaison Fabric**. Le futur adaptateur serveur doit sérialiser les accès concurrents au joueur et enregistrer consommation, offre et compteurs atomiquement, gérer rechargement et migration, et valider toutes les requêtes. Ne pas accepter une RNG, une offre ou une progression venant du client.
+Ces types constituent un contrat de domaine sans catalogue JSON, synchronisation, UI, bol ni transaction de gameplay ; leur encodage est raccordé à un attachment Fabric expérimental décrit ci-dessous. Le futur adaptateur serveur doit sérialiser les accès concurrents au joueur et enregistrer consommation, offre et compteurs atomiquement, gérer rechargement et migration, et valider toutes les requêtes. Ne pas accepter une RNG, une offre ou une progression venant du client.
 
 ## Codec autonome du carnet
 
 `NenStateCodec.encode/decode` utilise un format binaire versionné (magic `CBNN`, version 1, pity, collection, emplacements, offre, CRC32). Les identifiants sont triés à l'encodage et les noms des raretés sont stockés explicitement. `decode` contrôle les longueurs et invariants et refuse tout fichier d'une version inconnue ; il ne tente aucune migration automatique. La somme de contrôle n'est pas une protection contre un attaquant.
 
-L'état de domaine n'a pas de limite logique de collection, mais le codec actuel refuse plus de 100 000 entrées ou 32 Mio : limite de sécurité **incompatible avec la promesse d'inventaire illimité à grande échelle**, à résoudre avant livraison. Ce codec n'écrit aucun fichier et n'est pas un attachment Fabric : sauvegarde transactionnelle, cycle de vie joueur, migration et traitement des crashs restent à implémenter et tester.
+L'état de domaine n'a pas de limite logique de collection, mais le codec actuel refuse plus de 100 000 entrées ou 32 Mio : limite de sécurité **incompatible avec la promesse d'inventaire illimité à grande échelle**, à résoudre avant livraison. Ce codec n'écrit aucun fichier lui-même ; un attachment Fabric l'emploie désormais. La sauvegarde transactionnelle, la migration et le cycle de vie complet du joueur restent à implémenter et tester.
 
 ## Modèle de saisons
 
@@ -37,3 +37,9 @@ Les ressources `data/cambocraft/dimension/cambodia.json` et `dimension_type/camb
 ## Pierre du Lotus expérimentale
 
 `ModBlocks` enregistre le bloc et son `BlockItem` sur les deux environnements, ainsi qu'une entrée créative. Ressources sous `assets/cambocraft/` et `data/cambocraft/` ; texture régénérable avec `python3 tools/generate_lotus_texture.py`. Une recette de test fabrique quatre pierres à partir de quatre grès et d'une teinture rose. Elle est provisoire, ne remplace pas la quête et ne crée pas de portail.
+
+## Attachment Fabric du carnet
+
+`ModAttachments.NEN` est persistant, copié à la mort et non synchronisé. `PlayerNenStorage` ne prend qu'un joueur serveur. Il décode les octets avant chaque lecture et refuse d'écraser une archive existante illisible. Le codec Fabric ne décode pas l'état métier : il conserve les octets inconnus pour éviter une réinitialisation silencieuse. Les GameTests couvrent l'encodage/décodage NBT sur une entité et la conservation d'octets invalides, pas encore le cycle de vie d'un vrai joueur.
+
+L'attachment n'est utilisé par aucun tirage en jeu. La sauvegarde en mémoire, la consommation du bol et les compteurs ne sont pas transactionnels ; Fabric peut ignorer des données si le NBT est invalide avant le codec métier. Migration, sauvegardes de secours et tests de redémarrage sont indispensables. Les limites du codec sont toujours applicables.

@@ -57,3 +57,8 @@
 ## 2026-11-11 — Limite du serveur GameTest
 - **Choix :** vérifier dans le serveur de test le registre du type de dimension et l'existence de la ressource de dimension, puis réserver la validation de création du monde à un serveur ordinaire.
 - **Raison :** un premier test exigeant un `ServerWorld` personnalisé a échoué ; le serveur GameTest de Minecraft ne crée que ses mondes de test vanilla. Voir `RESEARCH.md`. La modification du test ne prouve donc pas que la dimension complète se charge sur un serveur normal.
+
+## 2026-11-11 — Attachment de sauvegarde Nen
+- **Choix :** enregistrer un attachment Fabric persistant, copié à la mort, non synchronisé, contenant une enveloppe d'octets immuable. L'adaptateur de stockage n'accepte qu'un `ServerPlayerEntity` et refuse de lire ou d'écraser une archive métier invalide ou d'une version inconnue.
+- **Raison :** le codec Fabric stocke les octets même si le format métier est inconnu ; cela évite qu'une erreur de décodage métier soit automatiquement remplacée par un nouvel état vide. Alternatives écartées : synchronisation générale au client et décodage destructif directement dans le codec Fabric.
+- **Limites :** aucune sauvegarde atomique avec la consommation d'un bol, migration, UI ou utilisation gameplay. Fabric peut encore ignorer un attachment si son propre décodage NBT échoue ; le stockage actuel n'est pas une sauvegarde de secours. Les limites de 100 000 pouvoirs/32 Mio persistent ; la reconnexion, la mort réelle d'un joueur, les redémarrages et les crashs n'ont pas été testés.

@@ -43,3 +43,7 @@
 
 ## 2026-11-11 — GameTests
 - Début des GameTests Fabric séparés du jar distribué. Premier lancement : échec du test exigeant une dimension complète dans le serveur GameTest ; ce serveur ne crée pas les mondes personnalisés. Test réorienté vers le type et la ressource, sans prétendre tester le monde complet.
+
+## 2026-11-11 — Persistance Fabric du carnet
+- Attachment Nen côté serveur, persistant et copié à la mort, avec conservation des octets de versions métier inconnues.
+- GameTests d'aller-retour NBT sur entité et d'archive invalide ; pas encore de test de cycle de vie joueur ou de transaction avec un bol.
