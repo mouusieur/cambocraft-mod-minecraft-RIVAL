@@ -1,12 +1,12 @@
 # Technique — état actuel
 
-Le projet contient un point d'entrée Fabric sans contenu jouable. Versions dans `gradle.properties`; Java 21 requis. `README.md` donne les commandes de construction et de lancement. Aucun réseau, stockage joueur, chargeur de données, datagen ou GameTest n'est implémenté. L'architecture cible et le principe d'autorité serveur sont décrits dans `DESIGN.md`.
+Le projet contient un socle Fabric et un prototype de portail, mais pas le contenu nécessaire à une partie complète. Versions dans `gradle.properties` ; Java 21 requis. `README.md` donne les commandes. Des attachments, un chargeur de zones, des GameTests et un bot existent, mais aucun système de combat, de quête ou de pouvoir n'est jouable. L'architecture cible est décrite dans `DESIGN.md`.
 
 ## Outil autonome
 
 `python3 tools/gacha.py --draws 5000000 --seed 20261111 --output rapport.json` génère le rapport des deux simulations ; `python3 -m unittest discover -s tests -v` lance ses tests. Les tickets et l'état sont définis dans `tools/gacha.py`. Un serveur Java devra avoir sa propre implémentation testée et synchronisée avec la spécification ; Python n'est pas embarqué dans Minecraft.
 
-Les autres outils demandés (générateurs NBT/textures/JSON/sons/docs, validateurs de données/assets/traduction, calculateur d'équilibrage, bot et GameTests) restent à créer. `ROADMAP.md` indique les dépendances et estimations.
+Le générateur de texture, quelques validations, GameTests et un bot d'intégration existent ; les autres outils demandés restent à créer. `ROADMAP.md` indique les dépendances et estimations.
 
 ## Raretés Java
 
@@ -28,11 +28,11 @@ L'état de domaine n'a pas de limite logique de collection, mais le codec actuel
 
 ## Modèle de saisons
 
-`SeasonClock.sample` calcule à partir d'un âge de monde monotone une saison, un jour, un tick et une fraction de niveau du lac. La durée est configurable au constructeur (huit jours par défaut). `lakeHeight(min,max)` arrondit cette fraction entre deux niveaux donnés ; il ne touche pas au monde. Le futur serveur devra fournir un compteur persistant (pas `timeOfDay`), synchroniser l'affichage et planifier toute modification de terrain avec un budget et une protection des constructions. Aucun de ces raccordements n'existe encore.
+`SeasonClock.sample` calcule à partir d'un âge de monde monotone une saison, un jour, un tick et une fraction de niveau du lac. La durée est configurable au constructeur (huit jours par défaut). `lakeHeight(min,max)` arrondit cette fraction entre deux niveaux donnés ; il ne touche pas au monde. Un compteur persistant côté serveur et des annonces de saison sont raccordés. L'affichage permanent et les modifications de terrain protégées et budgétisées restent à réaliser.
 
 ## Déclaration de dimension expérimentale
 
-Les ressources `data/cambocraft/dimension/cambodia.json` et `dimension_type/cambodia.json` déclarent respectivement la dimension et son type. La génération emploie provisoirement `minecraft:overworld` et un biome fixe `minecraft:jungle` ; il n'existe ni portail ni bruit ou biomes personnalisés. Les tests Python valident quelques invariants statiques mais ne vérifient pas la désérialisation ou le chargement Minecraft. **Non prêt pour un monde de production.**
+Les ressources `data/cambocraft/dimension/cambodia.json` et `dimension_type/cambodia.json` déclarent respectivement la dimension et son type. La génération emploie provisoirement `minecraft:overworld` et un biome fixe `minecraft:jungle` ; un portail rudimentaire existe, mais il n'y a pas de bruit ou de biomes personnalisés. La dimension est chargée sur serveur dédié et le prototype a été testé avec un bot dans un monde préparé. **Non prêt pour un monde de production.**
 
 ## Pierre du Lotus expérimentale
 
@@ -40,7 +40,7 @@ Les ressources `data/cambocraft/dimension/cambodia.json` et `dimension_type/camb
 
 ## Attachment Fabric du carnet
 
-`ModAttachments.NEN` est persistant, copié à la mort et non synchronisé. `PlayerNenStorage` ne prend qu'un joueur serveur. Il décode les octets avant chaque lecture et refuse d'écraser une archive existante illisible. Le codec Fabric ne décode pas l'état métier : il conserve les octets inconnus pour éviter une réinitialisation silencieuse. Les GameTests couvrent l'encodage/décodage NBT sur une entité et la conservation d'octets invalides, pas encore le cycle de vie d'un vrai joueur.
+`ModAttachments.NEN` est persistant, copié à la mort et non synchronisé. `PlayerNenStorage` ne prend qu'un joueur serveur. Il décode les octets avant chaque lecture et refuse d'écraser une archive existante illisible. Le codec Fabric ne décode pas l'état métier : il conserve les octets inconnus pour éviter une réinitialisation silencieuse. Les GameTests couvrent l'encodage/décodage NBT sur une entité et la conservation d'octets invalides, et une reconnexion d'un joueur headless ; la mort et le redémarrage avec ces données joueur restent à vérifier.
 
 L'attachment n'est utilisé par aucun tirage en jeu. La sauvegarde en mémoire, la consommation du bol et les compteurs ne sont pas transactionnels ; Fabric peut ignorer des données si le NBT est invalide avant le codec métier. Migration, sauvegardes de secours et tests de redémarrage sont indispensables. Les limites du codec sont toujours applicables.
 
@@ -48,7 +48,7 @@ L'attachment n'est utilisé par aucun tirage en jeu. La sauvegarde en mémoire, 
 
 `SeasonRuntime` avance un attachment `season_ticks` sur l'Overworld une fois par tick serveur et annonce les transitions aux joueurs présents dans `cambocraft:cambodia`. À la connexion dans cette dimension, la saison est annoncée. `-Dcambocraft.seasonDays=8` est le réglage par défaut (1 à 365) ; un changement reclassifie le compteur existant et n'est pas une migration de durée. Des données négatives ou saturées arrêtent l'horloge au lieu de les réinitialiser.
 
-Le calcul ne modifie pas encore l'eau, la pluie, les cultures ou les constructions et n'offre pas de HUD. Vérifier redémarrage, changement de dimension, multi-joueurs et performances avant usage réel.
+Le calcul ne modifie pas encore l'eau, la pluie, les cultures ou les constructions et n'offre pas de HUD. Un arrêt propre puis redémarrage conserve le compteur. Vérifier changement de dimension, multi-joueurs, crash et performances avant usage réel.
 
 ## Zones expérimentales et progression
 

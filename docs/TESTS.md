@@ -115,3 +115,6 @@ La suite de tests a été étendue à six tests après la simulation : le balaya
 
 - [CI n° 43121381869](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43121381869) : départ par clic réseau et retour accroupi avec le bol au point enregistré sur `c9685af`, dans un monde de test à destination préparée. Le bol est conservé et le point de retour supprimé après succès. Mort et reconnexion n'étaient pas testées dans ce scénario.
 - Un scénario supplémentaire de déconnexion/reconnexion et de relecture du Nen est ajouté ensuite ; résultat CI à vérifier.
+
+- [CI n° 43121880142](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43121880142) : sur `41568ff`, un bot a emprunté le portail par paquet réseau, s'est déconnecté dans Cambocraft, puis reconnecté avec le point de retour et un état Nen d'essai préservés ; retour avec le bol réussi. Destination préparée artificiellement, pas de client graphique. Mort, sauvegarde après crash et redémarrage avec joueur restent à tester. L'erreur de décodage Mineflayer d'inventaire observée auparavant n'est pas résolue.
+- Un GameTest NBT du point de retour est ajouté ensuite ; résultat CI à vérifier.
