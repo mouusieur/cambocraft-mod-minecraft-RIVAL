@@ -101,3 +101,6 @@ La suite de tests a été étendue à six tests après la simulation : le balaya
 
 - [CI n° 43116953405](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43116953405) : GameTest de sol, obstacles et eau réussi sur `4878761`, ainsi que serveur et redémarrage. Il ne vérifie pas la recherche sur un terrain généré ni le voyage.
 - Le prototype de voyage ajouté ensuite n'a pas encore été testé avec un joueur réel. Un build CI ne prouve ni passage ni retour.
+
+- [CI n° 43117366304](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43117366304) : compilation du prototype de portail réussie sur `c1efc34`, sans test de voyage.
+- Un scénario de joueur headless avec deux changements de dimension a été ajouté ensuite ; attendre son résultat CI. Le callback est invoqué directement côté serveur, non par un clic réseau.

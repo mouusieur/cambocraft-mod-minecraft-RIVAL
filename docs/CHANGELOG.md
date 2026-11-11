@@ -62,3 +62,6 @@
 ## 2026-11-11 — Prototype de voyage par cadre
 - Interaction expérimentale serveur avec un bol sur un cadre de Pierre du Lotus ; recherche d'une surface existante et refus si elle est absente. Retour par un second cadre à construire.
 - Aucune validation par joueur réel au moment de l'ajout, pas de portail naturel ni de retour automatique au cadre d'origine ; réservé aux mondes de test.
+
+## 2026-11-11 — Scénario de voyage avec client headless
+- Ajout d'un bot Mineflayer de CI et d'un scénario serveur auxiliaire ; le résultat doit encore être confirmé par la CI.

@@ -1,0 +1,8 @@
+{
+  "name": "cambocraft-ci-bot",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Client de test headless uniquement, non distribué avec le mod",
+  "engines": { "node": ">=22" },
+  "dependencies": { "mineflayer": "4.39.0" }
+}

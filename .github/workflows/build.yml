@@ -31,6 +31,15 @@ jobs:
           CAMBO_RESTART_CHECK=1 timeout 300 ./gradlew runServercheck --console=plain > servercheck-restart.log 2>&1
           grep -q CAMBO_SERVER_RESTART_OK servercheck-restart.log
           grep -q CAMBO_SERVER_STOP_OK servercheck-restart.log
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: tools/bot/package-lock.json
+      - name: Voyage expérimental avec client headless
+        run: |
+          npm ci --prefix tools/bot --ignore-scripts --no-audit --no-fund
+          python3 tools/bot/run_portal_test.py
       - uses: actions/upload-artifact@v6
         with:
           name: cambocraft-jars

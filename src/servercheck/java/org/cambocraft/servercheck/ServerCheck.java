@@ -22,6 +22,10 @@ public final class ServerCheck implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        if ("1".equals(System.getenv("CAMBO_BOT_CHECK"))) {
+            new PortalPlayerCheck().initialize();
+            return;
+        }
         ServerLifecycleEvents.SERVER_STARTED.register(server -> {
             RegistryKey<World> key = RegistryKey.of(RegistryKeys.WORLD, Identifier.of("cambocraft", "cambodia"));
             if (server.getWorld(key) == null) throw new AssertionError("Dimension Cambocraft non créée");
