@@ -12,7 +12,11 @@ bot._client.on('respawn', packet => {
   transitions++;
   console.log('CAMBO_BOT_RESPAWN', transitions, JSON.stringify(packet));
 });
-bot.on('kicked', reason => { console.error('Bot expulsé', reason); process.exitCode = 1; });
+bot.on('kicked', reason => {
+  if (!JSON.stringify(reason).includes('multiplayer.disconnect.server_shutdown')) {
+    console.error('Bot expulsé', reason); process.exitCode = 1;
+  }
+});
 bot.on('error', error => { console.error('Erreur du bot', error); process.exitCode = 1; });
 bot.on('end', reason => {
   clearTimeout(timeout);

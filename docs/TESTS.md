@@ -104,3 +104,5 @@ La suite de tests a été étendue à six tests après la simulation : le balaya
 
 - [CI n° 43117366304](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43117366304) : compilation du prototype de portail réussie sur `c1efc34`, sans test de voyage.
 - Un scénario de joueur headless avec deux changements de dimension a été ajouté ensuite ; attendre son résultat CI. Le callback est invoqué directement côté serveur, non par un clic réseau.
+
+- Les essais CI `43117902761`, `43118281595` et `43118728099` puis `43119143919` ont échoué : un vrai bot s'est connecté, mais la jungle ne contenait aucune surface répondant aux critères dans le rayon choisi ; le portail a refusé le départ sans téléporter. Le bot a aussi signalé une erreur de décodage de paquet d'inventaire. Le scénario suivant prépare un terrain déterministe uniquement dans le monde de test ; cela ne prouvera pas que la destination naturelle est généralement accessible.

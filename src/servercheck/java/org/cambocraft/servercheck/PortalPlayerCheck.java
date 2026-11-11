@@ -35,6 +35,16 @@ public final class PortalPlayerCheck {
             ServerWorld world = server.getOverworld();
             player.teleport(world, 10.5, 101, 10.5, 0, 0);
             clicked = makeFrame(world, new BlockPos(10, 100, 12));
+            // La jungle peut ne présenter aucune clairière dans le rayon de recherche.
+            // Une plateforme d'essai uniquement prépare un point d'arrivée déterministe.
+            ServerWorld target = server.getWorld(LotusPortal.CAMBODIA);
+            if (target == null) throw new AssertionError("Dimension absente");
+            for (int x = -2; x <= 2; x++) for (int z = -2; z <= 2; z++) {
+                BlockPos floor = new BlockPos(10 + x, 200, 12 + z);
+                target.setBlockState(floor, Blocks.STONE.getDefaultState());
+                target.setBlockState(floor.up(), Blocks.AIR.getDefaultState());
+                target.setBlockState(floor.up(2), Blocks.AIR.getDefaultState());
+            }
             phase = 1;
         });
         ServerTickEvents.END_SERVER_TICK.register(server -> {
