@@ -13,6 +13,12 @@ jobs:
       - run: tools/test_java.sh --simulate
       - run: python3 -m unittest discover -s tests -v
       - run: ./gradlew build
+      - name: GameTests Minecraft
+        run: |
+          ./gradlew runGametest --console=plain > gametest.log 2>&1 || {
+            tail -n 80 gametest.log | while IFS= read -r line; do echo "::error::$line"; done
+            exit 1
+          }
       - uses: actions/upload-artifact@v6
         with:
           name: cambocraft-jars

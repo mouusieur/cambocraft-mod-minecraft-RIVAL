@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "id": "cambocraft_gametest",
+  "version": "1.0.0",
+  "name": "Cambocraft GameTests",
+  "environment": "server",
+  "entrypoints": {
+    "fabric-gametest": ["org.cambocraft.gametest.WorldSmokeTests"]
+  },
+  "depends": {
+    "cambocraft": "*",
+    "fabric-api": "*"
+  }
+}
