@@ -68,6 +68,11 @@ public final class PortalPlayerCheck {
                         + " frameX=" + LotusPortalFrame.matches(origin, clicked.up(), Direction.Axis.X, null)
                         + " frameZ=" + LotusPortalFrame.matches(origin, clicked.up(), Direction.Axis.Z, null)
                         + " target=" + SafePortalLanding.find(server.getWorld(LotusPortal.CAMBODIA), clicked.getX(), clicked.getZ()));
+                ServerWorld dim = server.getWorld(LotusPortal.CAMBODIA);
+                BlockPos testFeet = new BlockPos(10, 201, 12);
+                System.out.println("CAMBO_LANDING_DIAG top=" + dim.getTopPosition(net.minecraft.world.Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, testFeet)
+                        + " feet=" + dim.getBlockState(testFeet) + " floor=" + dim.getBlockState(testFeet.down())
+                        + " safe=" + SafePortalLanding.isSafe(dim, testFeet) + " border=" + dim.getWorldBorder().contains(testFeet));
                 throw new AssertionError("Interaction portail refusée : " + result);
             }
             if (phase == 1) {

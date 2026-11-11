@@ -16,6 +16,9 @@ public final class PortalLandingTests {
         world.setBlockState(feet, Blocks.AIR.getDefaultState());
         world.setBlockState(feet.up(), Blocks.AIR.getDefaultState());
         context.assertTrue(SafePortalLanding.isSafe(world, feet), "Sol solide et air refusés");
+        var top = world.getTopPosition(net.minecraft.world.Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, feet);
+        context.assertTrue(SafePortalLanding.find(world, feet.getX(), feet.getZ()).isPresent(),
+                "Recherche de surface échouée ; hauteur=" + top + ", pied attendu=" + feet);
         world.setBlockState(feet.up(), Blocks.STONE.getDefaultState());
         context.assertTrue(!SafePortalLanding.isSafe(world, feet), "Tête obstruée acceptée");
         world.setBlockState(feet.up(), Blocks.AIR.getDefaultState());
