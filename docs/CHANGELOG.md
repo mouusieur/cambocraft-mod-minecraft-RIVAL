@@ -24,3 +24,7 @@
 ## 2026-11-11 — Modèle du carnet P0
 - Catalogue immuable par rareté et transitions d'offre/choix ; conservation de la collection, équipement de trois pouvoirs, doublons et seuils de maîtrise paramétrés.
 - Tests de limites, copie défensive, catalogue modifié et état d'offre en attente. Pas d'interface, contenu jouable, sauvegarde Minecraft ni réseau.
+
+## 2026-11-11 — Encodage du carnet
+- Codec autonome versionné avec CRC32, bornes défensives et tests de sauvegardes invalides.
+- Ce codec n'est pas branché aux sauvegardes Minecraft ; pas de migration réelle ni de persistance durable, et une limite technique à résoudre avant livraison.

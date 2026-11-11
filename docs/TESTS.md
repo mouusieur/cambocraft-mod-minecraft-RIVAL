@@ -52,3 +52,9 @@ La suite de tests a été étendue à six tests après la simulation : le balaya
 - `tools/test_java.sh --simulate` avec Eclipse Compiler et JRE 21 : compilation des classes de domaine et des deux suites `GachaTest` et `NenJournalTest` réussie ; simulation Java reproductible de 5 millions de tirages par scénario également réussie.
 - Vérifiés : validation du catalogue, tri des candidats, bornes de la RNG, verrou d'offre, acceptation/refus, doublons, plafonnement, seuils de maîtrise, trois emplacements, copies défensives et refus d'une offre rendue invalide par un changement de catalogue.
 - Tests Python : six réussis. Aucun test Fabric, de sauvegarde Minecraft ou de réseau : le carnet n'est pas en jeu. Seuils de maîtrise utilisés dans les tests (100 et 250) arbitraires et non équilibrés.
+
+## Suite P0 — codec de carnet
+
+- `tools/test_java.sh --simulate` avec Eclipse Compiler et JRE 21 : les trois suites Java réussissent et les deux simulations de 5 millions de tirages passent.
+- Codec : aller-retour d'état complet et vide, ordre déterministe, détection de corruption, fichier tronqué, taille excessive, version inconnue, format incorrect, compteur invalide, nombre excessif d'entrées, doublons et données surnuméraires.
+- La sérialisation testée est en mémoire seulement ; pas de test de redémarrage d'un serveur, ni de branchement Minecraft, ni d'écriture atomique ou de migration de données existantes.

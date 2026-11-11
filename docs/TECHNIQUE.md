@@ -19,3 +19,9 @@ Avec un JDK 21, `tools/test_java.sh --simulate` compile et teste ces seules clas
 `PowerCatalog` est un instantané immuable regroupant des identifiants uniques par rareté. `NenJournal.offer` reçoit une source de nombres aléatoires bornée ; il appelle le cœur de gacha puis sélectionne un pouvoir. `NenJournal.resolve` accepte ou rejette une offre, sans perdre les acquisitions précédentes ; `NenState.equip` valide jusqu'à trois pouvoirs possédés distincts. `PowerProgress` conserve exemplaires et maîtrise, mais les seuils de maîtrise sont à définir et équilibrer. L'absence d'offre en attente est requise avant tout nouveau tirage.
 
 Ces types constituent un contrat de domaine **sans persistance, catalogue JSON, synchronisation, UI, bol, transaction ou liaison Fabric**. Le futur adaptateur serveur doit sérialiser les accès concurrents au joueur et enregistrer consommation, offre et compteurs atomiquement, gérer rechargement et migration, et valider toutes les requêtes. Ne pas accepter une RNG, une offre ou une progression venant du client.
+
+## Codec autonome du carnet
+
+`NenStateCodec.encode/decode` utilise un format binaire versionné (magic `CBNN`, version 1, pity, collection, emplacements, offre, CRC32). Les identifiants sont triés à l'encodage et les noms des raretés sont stockés explicitement. `decode` contrôle les longueurs et invariants et refuse tout fichier d'une version inconnue ; il ne tente aucune migration automatique. La somme de contrôle n'est pas une protection contre un attaquant.
+
+L'état de domaine n'a pas de limite logique de collection, mais le codec actuel refuse plus de 100 000 entrées ou 32 Mio : limite de sécurité **incompatible avec la promesse d'inventaire illimité à grande échelle**, à résoudre avant livraison. Ce codec n'écrit aucun fichier et n'est pas un attachment Fabric : sauvegarde transactionnelle, cycle de vie joueur, migration et traitement des crashs restent à implémenter et tester.
