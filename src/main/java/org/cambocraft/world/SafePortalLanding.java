@@ -25,6 +25,9 @@ public final class SafePortalLanding {
                             || candidateZ < -29_999_984 || candidateZ > 29_999_984) continue;
                     BlockPos column = new BlockPos((int) candidateX, 0, (int) candidateZ);
                     if (!world.getWorldBorder().contains(column)) continue;
+                    // getTopPosition seul peut retourner le fond du monde si le chunk cible
+                    // n'est pas chargé ; charger explicitement avant de consulter sa heightmap.
+                    world.getChunk(column.getX() >> 4, column.getZ() >> 4);
                     BlockPos feet = world.getTopPosition(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, column);
                     if (isSafe(world, feet)) return Optional.of(feet.toImmutable());
                 }
