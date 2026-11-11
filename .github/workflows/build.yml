@@ -16,7 +16,7 @@ jobs:
       - name: GameTests Minecraft
         run: |
           ./gradlew runGametest --console=plain > gametest.log 2>&1 || {
-            tail -n 80 gametest.log | while IFS= read -r line; do echo "::error::$line"; done
+            tail -n 100 gametest.log | python3 -c 'import sys; s=sys.stdin.read().replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A"); print("::error::" + s)' 
             exit 1
           }
       - uses: actions/upload-artifact@v6
