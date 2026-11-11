@@ -23,7 +23,7 @@ LIMITS = (30, 80, 250)
 
 
 def base_rarity(ticket: int) -> Rarity:
-    if not 0 <= ticket < 10_000:
+    if type(ticket) is not int or not 0 <= ticket < 10_000:
         raise ValueError("Le ticket doit être compris entre 0 et 9999")
     if ticket < 5500:
         return Rarity.COMMUN

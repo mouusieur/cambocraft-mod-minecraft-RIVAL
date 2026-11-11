@@ -18,3 +18,7 @@
 - **Catalogue de pouvoirs :** prévoir au moins 84 pouvoirs, plutôt que 80, si chaque pouvoir a un seul élément : sept éléments × douze pouvoirs. L'alternative de pouvoirs multi-éléments aurait aussi résolu la contrainte mais ajouterait des ambiguïtés d'équilibrage ; elle reste possible après conception détaillée.
 - **Priorités contradictoires :** course de pirogues et Royaume des Esprits considérés P1 comme dans les critères de succès ; ils ne sont pas relégués au P2.
 - **Culture :** les références documentaires sont un premier repérage et ne remplacent pas une consultation de personnes cambodgiennes. Aucune œuvre tierce n'est incorporée.
+
+## 2026-11-11 — Communication de l'état
+- **Choix :** conserver guide et page publique comme brouillons clairement non publiables, et suivre séparément chaque critère de la section 18.
+- **Alternative écartée :** annoncer comme fonctionnalités les objectifs de conception ou les résultats d'une simulation non intégrée ; cela masquerait l'absence de jeu et de tests Minecraft.

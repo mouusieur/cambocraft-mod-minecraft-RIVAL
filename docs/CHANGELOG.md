@@ -12,3 +12,7 @@
 ## 2026-11-11 — Conception et feuille de route
 - Recherche initiale sourcée, plan technique, limites et propositions de palette et de recettes.
 - Tableau d'avancement restant, dépendances et estimations P0/P1/P2 ; aucun contenu associé n'est revendiqué comme livré.
+
+## 2026-11-11 — Revue de la simulation et état de livraison
+- Contrôle exhaustif des 10 000 tickets et rejet des types non entiers.
+- Tableau de suivi des critères de livraison ; brouillons de guide et de page publique explicitement non publiables.

@@ -8,9 +8,15 @@ class GachaTest(unittest.TestCase):
                                (8300, 2), (9499, 2), (9500, 3),
                                (9949, 3), (9950, 4), (9999, 4)]:
             self.assertEqual(base_rarity(ticket), rarity)
-        for ticket in (-1, 10000):
+        for ticket in (-1, 10000, 1.5, True, "1"):
             with self.assertRaises(ValueError):
                 base_rarity(ticket)
+
+    def test_full_ticket_distribution(self):
+        from collections import Counter
+        from tools.gacha import WEIGHTS
+        counts = Counter(base_rarity(ticket) for ticket in range(10_000))
+        self.assertEqual([counts[rarity] for rarity in Rarity], list(WEIGHTS))
 
     def test_each_guarantee_after_exact_misses(self):
         for state, expected in [(Pity(30, 30, 30), Rarity.EPIQUE),
