@@ -85,3 +85,4 @@
 ## 2026-11-11 — Client headless pour le prototype de portail
 - **Choix :** utiliser Mineflayer uniquement dans la CI et un mod auxiliaire non distribué pour créer un cadre dans un monde jetable, invoquer le callback de bloc sur un joueur réellement connecté, attendre le cooldown et tester l'aller-retour ainsi que les deux changements de dimension reçus par le client.
 - **Limites :** le clic est invoqué par le mod de test, pas par un paquet client ; le monde est modifié volontairement pour préparer le scénario. Cela ne remplace ni un client Fabric graphique ni un playtest, ni les essais de sécurité des réseaux, du combat ou de la reconnexion. Résultat à confirmer en CI.
+- **Révision :** le scénario évolue ensuite vers des paquets `block_place` envoyés par le bot ; cela doit être vérifié séparément en CI. La plateforme d'arrivée n'existe que dans le scénario de test et n'est pas générée en production.

@@ -65,3 +65,4 @@
 
 ## 2026-11-11 — Scénario de voyage avec client headless
 - Ajout d'un bot Mineflayer de CI et d'un scénario serveur auxiliaire ; le résultat doit encore être confirmé par la CI.
+- Le scénario de voyage est ensuite étendu pour envoyer des paquets d'interaction depuis le bot ; résultat à vérifier en CI.
