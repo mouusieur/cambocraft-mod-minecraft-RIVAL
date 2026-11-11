@@ -17,6 +17,8 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.cambocraft.registry.ModBlocks;
 import org.cambocraft.world.LotusPortal;
+import org.cambocraft.world.LotusPortalFrame;
+import org.cambocraft.world.SafePortalLanding;
 
 /** Scénario destructif uniquement dans le monde éphémère de la CI. */
 public final class PortalPlayerCheck {
@@ -47,7 +49,17 @@ public final class PortalPlayerCheck {
             ServerWorld origin = player.getServerWorld();
             var hit = new BlockHitResult(Vec3d.ofCenter(clicked), Direction.UP, clicked, false);
             ActionResult result = UseBlockCallback.EVENT.invoker().interact(player, origin, Hand.MAIN_HAND, hit);
-            if (result != ActionResult.SUCCESS) throw new AssertionError("Interaction portail refusée : " + result);
+            if (result != ActionResult.SUCCESS) {
+                System.out.println("CAMBO_PORTAL_DIAG pos=" + player.getPos() + " clicked=" + clicked
+                        + " hand=" + player.getMainHandStack() + " alive=" + player.isAlive()
+                        + " spectator=" + player.isSpectator() + " vehicle=" + player.hasVehicle()
+                        + " distance=" + player.squaredDistanceTo(Vec3d.ofCenter(clicked))
+                        + " cooldown=" + player.getItemCooldownManager().isCoolingDown(Items.BOWL)
+                        + " frameX=" + LotusPortalFrame.matches(origin, clicked.up(), Direction.Axis.X, null)
+                        + " frameZ=" + LotusPortalFrame.matches(origin, clicked.up(), Direction.Axis.Z, null)
+                        + " target=" + SafePortalLanding.find(server.getWorld(LotusPortal.CAMBODIA), clicked.getX(), clicked.getZ()));
+                throw new AssertionError("Interaction portail refusée : " + result);
+            }
             if (phase == 1) {
                 if (!player.getServerWorld().getRegistryKey().equals(LotusPortal.CAMBODIA)) throw new AssertionError("Aller échoué");
                 if (!player.getMainHandStack().isOf(Items.BOWL)) throw new AssertionError("Bol consommé");
