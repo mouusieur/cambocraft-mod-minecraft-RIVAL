@@ -20,3 +20,7 @@ Le jar remappé est attendu dans `build/libs/` après une compilation réussie. 
 Minecraft 1.21.1 (jeu), Fabric Loader (chargement), Fabric API (points d'intégration), Loom (construction/remappage), Yarn (noms de développement), Gradle (construction), Java 21 (exécution) ; versions exactes dans `gradle.properties` et le wrapper. Aucune dépendance d'animation à ce stade. Fabric Loader/API doivent être installés côté jeu. Aucun écran d'options n'est inclus.
 
 Voir `docs/DECISIONS.md`, `docs/TESTS.md` et `CREDITS.md` pour les limites, vérifications et sources.
+
+## Simulation expérimentale du gacha
+
+`python3 tools/gacha.py --draws 5000000 --seed 20261111` exécute chaque scénario (avec et sans pity). La simulation et les conventions de garantie sont expliquées dans `docs/PROBABILITES.md`. Elle est indépendante du mod : il n'y a pas encore de gacha jouable.

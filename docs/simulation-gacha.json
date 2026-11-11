@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "without_pity": {
+    "draws": 5000000,
+    "seed": 20261111,
+    "pity": false,
+    "counts": {
+      "commun": 2750786,
+      "rare": 1400025,
+      "epique": 598770,
+      "legendaire": 225381,
+      "mythique": 25038
+    },
+    "rates": {
+      "commun": 0.5501572,
+      "rare": 0.280005,
+      "epique": 0.119754,
+      "legendaire": 0.0450762,
+      "mythique": 0.0050076
+    },
+    "max_consecutive_misses": {
+      "epique": 76,
+      "legendaire": 237,
+      "mythique": 2511
+    }
+  },
+  "with_pity": {
+    "draws": 5000000,
+    "seed": 20261111,
+    "pity": true,
+    "counts": {
+      "commun": 2741752,
+      "rare": 1395527,
+      "epique": 599567,
+      "legendaire": 228223,
+      "mythique": 34931
+    },
+    "rates": {
+      "commun": 0.5483504,
+      "rare": 0.2791054,
+      "epique": 0.1199134,
+      "legendaire": 0.0456446,
+      "mythique": 0.0069862
+    },
+    "max_consecutive_misses": {
+      "epique": 30,
+      "legendaire": 80,
+      "mythique": 250
+    }
+  }
+}

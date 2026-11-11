@@ -6,3 +6,8 @@
 - **Animations :** aucune bibliothèque d'animation pour l'instant. Le choix GeckoLib ou animation native est reporté jusqu'au premier modèle animé et à un test d'intégration ; ne pas ajouter une dépendance invérifiée au socle.
 - **Contrainte :** pas de JDK ni de Gradle installés initialement ; accès réseau refusé à services.gradle.org, maven.fabricmc.net et Maven Central. Un runtime Java 21 temporaire a été obtenu depuis PyPI, mais il ne contient pas `javac`. La compilation Fabric et les lancements restent non vérifiés.
 - **Périmètre :** le dépôt était vide à l'exception du README. Ce socle ne constitue pas un mod jouable et ne valide aucun critère de jeu de la section 18.
+
+## 2026-11-11 — Prototype du gacha
+- **Choix :** « après N tirages sans » signifie garantie au tirage suivant : 31, 81 et 251 au plus tard. Une rareté supérieure remet à zéro les compteurs inférieurs. Lorsque plusieurs garanties sont dues, la plus élevée l'emporte ; un résultat naturel supérieur n'est jamais abaissé.
+- **Alternative :** garantir dès le N-ième tirage a été écarté car cela signifierait après seulement N−1 échecs ; ces deux interprétations devront être annoncées explicitement aux joueurs.
+- **Portée :** outil de conception autonome, non connecté au jeu. Aucun état joueur n'est sauvegardé. L'intégration serveur, les choix de relance et les pouvoirs restent P0.
