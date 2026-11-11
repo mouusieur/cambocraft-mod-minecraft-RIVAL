@@ -39,7 +39,10 @@ jobs:
       - name: Voyage expérimental avec client headless
         run: |
           npm ci --prefix tools/bot --ignore-scripts --no-audit --no-fund
-          python3 tools/bot/run_portal_test.py
+          python3 tools/bot/run_portal_test.py > bot-check.log 2>&1 || {
+            tail -n 100 bot-check.log | python3 -c 'import sys; s=sys.stdin.read().replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A"); print("::error::" + s)'
+            exit 1
+          }
       - uses: actions/upload-artifact@v6
         with:
           name: cambocraft-jars
