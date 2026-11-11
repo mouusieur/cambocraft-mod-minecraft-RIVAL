@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "cambocraft",
+  "version": "${version}",
+  "name": "Cambocraft",
+  "description": "Fondations expérimentales de Cambocraft ; contenu jouable non encore disponible.",
+  "environment": "*",
+  "entrypoints": { "main": ["org.cambocraft.Cambocraft"] },
+  "depends": {
+    "fabricloader": ">=0.20.1",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
