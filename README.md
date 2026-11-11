@@ -1,6 +1,6 @@
 # Cambocraft
 
-**État : fondations expérimentales, pas un mod jouable.** Une déclaration expérimentale de dimension existe, mais elle n'a pas été chargée en jeu ; aucun portail ni système de progression n'est encore intégré. Ne pas installer dans un monde auquel vous tenez.
+**État : fondations expérimentales, pas un mod jouable.** La dimension et un prototype de portail ont été testés sur serveur dédié avec un client headless et une destination artificielle ; la progression, les boss et le contenu principal ne sont pas intégrés. Ne pas installer dans un monde auquel vous tenez.
 
 ## Développement
 
@@ -13,7 +13,7 @@ Prérequis : JDK 21, Python 3 et accès aux dépôts Fabric, Maven Central, Grad
 python3 -m unittest discover -s tests -v
 ```
 
-Le jar remappé est attendu dans `build/libs/` après une compilation réussie. Le build Fabric et des GameTests ont réussi en CI GitHub sur la révision `d500176` ; le build local reste bloqué par le réseau. Pour une future installation, utiliser Minecraft 1.21.1 avec Fabric Loader et l'API Fabric indiqués dans `gradle.properties`, puis placer le jar et l'API Fabric dans `mods/`. Ce n'est pas une version distribuable aujourd'hui.
+Le jar remappé est attendu dans `build/libs/` après une compilation réussie. Le build Fabric et des GameTests ont réussi en CI GitHub sur la révision `85fb439` ; le build local reste bloqué par le réseau. Pour une future installation, utiliser Minecraft 1.21.1 avec Fabric Loader et l'API Fabric indiqués dans `gradle.properties`, puis placer le jar et l'API Fabric dans `mods/`. Ce n'est pas une version distribuable aujourd'hui.
 
 ## Dépendances
 

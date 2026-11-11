@@ -7,5 +7,7 @@
   "message.cambocraft.portal_frame": "Cadre incomplet : construire un cadre vertical 3 × 4 autour de deux blocs d’air.",
   "message.cambocraft.portal_unavailable": "Destination indisponible.",
   "message.cambocraft.portal_unsafe": "Aucune arrivée sûre à proximité ; voyage annulé.",
-  "message.cambocraft.portal_arrival": "Voyage accompli. Pour revenir, construisez un autre cadre et utilisez votre bol."
+  "message.cambocraft.portal_arrival": "Accroupissez-vous et utilisez votre bol dans le vide pour revenir.",
+  "message.cambocraft.portal_no_return": "Aucun point de retour sûr enregistré ; voyage annulé.",
+  "message.cambocraft.portal_returned": "Retour accompli."
 }

@@ -110,3 +110,5 @@ La suite de tests a été étendue à six tests après la simulation : le balaya
 
 - [CI n° 43120454239](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43120454239) sur `02b77a1` : aller-retour réussi avec un client Mineflayer connecté, deux changements de dimension reçus, callback invoqué directement par le serveur et plateformes de test construites artificiellement. Le client a émis une erreur de décodage d'inventaire auparavant observée ; ce n'est pas une validation d'un client Fabric graphique ni d'une arrivée naturelle. Le chargement explicite du chunk a corrigé la recherche sur terrain de test.
 - Le scénario est ensuite modifié pour envoyer de vrais paquets de clic depuis le bot ; son résultat est à vérifier séparément.
+
+- [CI n° 43120939983](https://github.com/mouusieur/cambocraft-mod-minecraft-RIVAL/actions/runs/43120939983) : aller-retour avec deux paquets `block_place` réseau sur la révision `85fb439`, destination artificiellement préparée ; client headless, pas de client graphique. Le retour par bol accroupi et son point sauvegardé sont ajoutés ensuite et restent à vérifier.

@@ -7,5 +7,7 @@
   "message.cambocraft.portal_frame": "Incomplete frame: build a vertical 3 × 4 frame around two air blocks.",
   "message.cambocraft.portal_unavailable": "Destination unavailable.",
   "message.cambocraft.portal_unsafe": "No safe landing nearby; travel cancelled.",
-  "message.cambocraft.portal_arrival": "Travel complete. To return, build another frame and use your bowl."
+  "message.cambocraft.portal_arrival": "Sneak and use your bowl in the air to return.",
+  "message.cambocraft.portal_no_return": "No safe return point recorded; travel cancelled.",
+  "message.cambocraft.portal_returned": "Returned successfully."
 }

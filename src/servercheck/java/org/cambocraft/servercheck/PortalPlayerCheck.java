@@ -11,9 +11,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.text.Text;
 import org.cambocraft.registry.ModBlocks;
+import org.cambocraft.registry.ModAttachments;
 import org.cambocraft.world.LotusPortal;
 
 /** Scénario destructif uniquement dans le monde éphémère de la CI. */
+@SuppressWarnings("UnstableApiUsage")
 public final class PortalPlayerCheck {
     private ServerPlayerEntity player;
     private BlockPos clicked;
@@ -44,7 +46,8 @@ public final class PortalPlayerCheck {
             if (player == null || phase == 0) return;
             ticks++;
             if ((phase == 1 && ticks >= 30) || (phase == 2 && ticks >= 120)) {
-                player.sendMessage(Text.literal("CAMBO_CLICK " + clicked.getX() + " " + clicked.getY() + " " + clicked.getZ()), false);
+                String message = phase == 1 ? "CAMBO_CLICK " + clicked.getX() + " " + clicked.getY() + " " + clicked.getZ() : "CAMBO_RECALL";
+                player.sendMessage(Text.literal(message), false);
                 System.out.println("CAMBO_WAIT_CLICK " + phase + " " + clicked);
                 phase = phase == 1 ? 11 : 22;
                 ticks = 0;
@@ -52,13 +55,16 @@ public final class PortalPlayerCheck {
             }
             if (phase == 11 && player.getServerWorld().getRegistryKey().equals(LotusPortal.CAMBODIA)) {
                 if (!player.getMainHandStack().isOf(Items.BOWL)) throw new AssertionError("Bol consommé");
-                clicked = makeFrame(player.getServerWorld(), player.getBlockPos().down().south(2));
+                if (!new BlockPos(10, 101, 10).equals(player.getAttached(ModAttachments.PORTAL_RETURN)))
+                    throw new AssertionError("Point de retour manquant");
                 phase = 2;
                 ticks = 0;
                 return;
             }
             if (phase == 22 && player.getServerWorld().getRegistryKey().equals(World.OVERWORLD)) {
                 if (!player.getMainHandStack().isOf(Items.BOWL)) throw new AssertionError("Bol consommé");
+                if (!player.getBlockPos().equals(new BlockPos(10, 101, 10))) throw new AssertionError("Retour éloigné du point sauvegardé");
+                if (player.getAttached(ModAttachments.PORTAL_RETURN) != null) throw new AssertionError("Point de retour non effacé");
                 phase = 3;
                 ticks = 0;
                 return;
